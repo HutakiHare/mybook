@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Routing Path Update &#8212; Data Structure Works</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'HW2-Routing_Path_Update';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantum Network" href="HW3-Quatum_Network.html" />
+    <link rel="prev" title="Maze" href="HW1-Maze.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Data Structure Works - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Data Structure Works - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="HW1-Maze.html">Maze</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Routing Path Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HW3-Quatum_Network.html">Quantum Network</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HutakiHare/mynewbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HutakiHare/mynewbook/issues/new?title=Issue%20on%20page%20%2FHW2-Routing_Path_Update.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/HW2-Routing_Path_Update.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Routing Path Update</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">題目簡介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">運作方式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n">1.開始: 輸入n、新舊路徑</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2. 過程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3. 結果</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="routing-path-update">
+<h1>Routing Path Update<a class="headerlink" href="#routing-path-update" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p><strong>基本資訊</strong><br />
+程式語言: C<br />
+程式網址: <a class="reference external" href="https://onlinegdb.com/9OJzYnfzL">https://onlinegdb.com/9OJzYnfzL</a><br />
+製作時長: 2 周<br />
+作者: Hutaki Hare</p>
+</div></blockquote>
+<section id="id1">
+<h2>題目簡介<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>給定n個節點，並輸入舊的與要更新至的新的 routing path，將舊的path在不造成drop、cycle一步一步更新至新的path，且傳輸順序不可亂掉。</p>
+</section>
+<section id="id2">
+<h2>運作方式<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="n">
+<h3>1.開始: 輸入n、新舊路徑<a class="headerlink" href="#n" title="Link to this heading">#</a></h3>
+<p><img alt="input1" src="_images/input1.png" /></p>
+<p>舊的路徑<br />
+<img alt="graphic_input1" src="_images/graphic_input1.png" /></p>
+<p><img alt="node_graph1" src="_images/node_graph1.png" /></p>
+<p>新的路徑<br />
+<img alt="graphic_input2" src="_images/graphic_input2.png" /></p>
+<p><img alt="node_graph2" src="_images/node_graph2.png" /></p>
+<div class="highlight-raw notranslate"><div class="highlight"><pre><span></span>scanf(&quot;%d&quot;,&amp;n);                                   //scan node num
+linked_list strt_arr[n],result_arr[n];
+for(int i=0;i&lt;n;i++){
+    scanf(&quot;%d&quot;,&amp;num);
+    strt_arr[i].node=i;
+    strt_arr[i].num=num;
+}
+for(int j=0;j&lt;n;j++){                                   //store all in arr sequently
+    scanf(&quot;%d&quot;,&amp;num);
+        result_arr[j].node=j;
+        result_arr[j].num=num;
+}
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>2. 過程<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>用stack的方式儲存兩個routing path<br />
+<img alt="node_graph3" src="_images/node_graph3.png" /></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">t</span><span class="o">!=-</span><span class="mi">1</span><span class="p">;){</span>                                  <span class="o">//</span> <span class="n">put</span> <span class="n">the</span> <span class="n">used</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="n">linked</span> <span class="nb">list</span> <span class="ow">in</span> <span class="n">stack</span> <span class="p">(</span><span class="n">LIFO</span><span class="p">)</span>
+    <span class="n">strt</span><span class="o">=</span><span class="n">add_to_list_normal</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">strt</span><span class="p">);</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">t</span><span class="o">!=-</span><span class="mi">1</span><span class="p">;){</span>                                   <span class="o">//</span> <span class="n">put</span> <span class="n">the</span> <span class="n">used</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="n">linked</span> <span class="nb">list</span> <span class="ow">in</span> <span class="n">stack</span>
+    <span class="n">result</span><span class="o">=</span><span class="n">add_to_list_normal</span><span class="p">(</span><span class="n">result_arr</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">result</span><span class="p">);</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="nn">    for(int t=0;t!=-1;){                                  // put the used nodes in linked list</span> in <span class="ni">stack </span><span class="nt">(LIFO)</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax. Perhaps you forgot a comma?
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>先算一次更新次數，並印出，再一條一條印出更新過程</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">count_fin</span><span class="p">(</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">strt</span><span class="p">,</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">result_arr</span><span class="p">,</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">tmp_strt_arr</span><span class="p">,</span><span class="nb">int</span> <span class="n">n</span><span class="p">){</span>   <span class="o">//</span><span class="n">count</span> <span class="n">num</span> <span class="n">of</span> <span class="n">steps</span>
+    <span class="n">linked_list</span> <span class="o">*</span><span class="n">tmp_re</span><span class="o">=</span><span class="n">result</span><span class="p">,</span><span class="o">*</span><span class="n">tmp_strt</span><span class="o">=</span><span class="n">strt</span><span class="p">,</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="nb">int</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">non_used_assigned</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>   <span class="o">//</span> <span class="s2">&quot;count&quot;</span> <span class="n">count</span> <span class="n">the</span> <span class="n">num</span> <span class="n">of</span> <span class="n">steps</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+       <span class="o">...</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)){</span>           <span class="o">//</span><span class="k">if</span> <span class="n">have</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span><span class="p">,</span> <span class="ow">and</span> <span class="n">what</span> <span class="n">their</span> <span class="nb">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">non_used_assigned</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>                    <span class="o">//</span><span class="n">count</span><span class="o">+=</span><span class="mi">1</span> <span class="p">(</span><span class="n">update</span> <span class="n">once</span> <span class="n">assigning</span> <span class="nb">all</span> <span class="n">node</span> <span class="n">to</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>     <span class="o">//</span><span class="n">assign</span> <span class="nb">all</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span> <span class="n">to</span> <span class="n">their</span> <span class="n">right</span> <span class="nb">next</span> <span class="n">node</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">count</span><span class="o">+=</span><span class="n">non_used_assigned</span><span class="p">;</span>        <span class="o">//</span><span class="n">count</span><span class="o">+=</span><span class="mi">0</span> <span class="k">if</span> <span class="n">no</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span> <span class="n">that</span> <span class="n">need</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="nb">int</span> <span class="n">non_release_need_count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>          <span class="o">//</span><span class="n">count</span> <span class="k">if</span> <span class="n">need</span> <span class="n">to</span> <span class="n">do</span> <span class="n">releasing</span> <span class="n">nodes</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">num</span><span class="p">){</span>         <span class="o">//</span><span class="n">due</span> <span class="n">to</span> <span class="n">stack</span><span class="p">,</span><span class="n">start</span> <span class="k">with</span> <span class="n">the</span> <span class="n">destiny</span> <span class="n">node</span><span class="p">,</span> <span class="k">if</span> <span class="n">dif</span> <span class="n">go</span> <span class="ow">in</span> <span class="n">loop</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>                             <span class="o">//</span> <span class="mf">1.</span><span class="n">connection</span>
+            <span class="o">//</span><span class="n">connect</span> <span class="n">now</span> <span class="n">directly</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">node</span> <span class="n">it</span> <span class="n">should</span> <span class="n">have</span> <span class="p">(</span><span class="n">count</span><span class="o">+=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="o">!=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">){</span>       <span class="o">//</span><span class="k">if</span> <span class="n">have</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span> <span class="n">after</span> <span class="n">the</span> <span class="n">connection</span>
+                <span class="o">//</span><span class="kn">from</span> <span class="nn">the</span> <span class="n">strt</span> <span class="nb">list</span> <span class="n">start</span><span class="p">,</span> <span class="n">to</span> <span class="n">the</span> <span class="n">node</span> <span class="n">working</span> <span class="n">on</span> <span class="n">now</span>
+                <span class="o">//</span><span class="k">if</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">the</span> <span class="n">release</span> <span class="n">nodes</span> <span class="n">shouldn</span><span class="s1">&#39;t point to -1</span>
+                <span class="o">//</span><span class="k">if</span> <span class="n">need</span> <span class="n">to</span> <span class="n">do</span> <span class="n">update</span>
+                <span class="n">tmp_strt</span><span class="o">=</span><span class="n">tmp_store_tmp_strt</span><span class="p">;</span>  <span class="o">//</span><span class="n">assign</span> <span class="n">back</span> <span class="n">to</span> <span class="n">tmp_strt</span> <span class="n">was</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">non_release_need_count</span><span class="p">){</span>   <span class="o">//</span><span class="k">if</span> <span class="n">need</span> <span class="n">to</span> <span class="n">do</span> <span class="n">updating</span>
+                    <span class="o">//</span><span class="n">assign</span> <span class="n">the</span> <span class="n">right</span> <span class="nb">next</span> <span class="n">node</span>
+                    <span class="n">count</span><span class="o">+=</span><span class="p">(</span><span class="n">non_release_need_count</span><span class="p">);</span><span class="o">//</span> <span class="mf">2.</span><span class="n">update</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>              <span class="o">//</span><span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="n">start</span> <span class="n">node</span> <span class="k">break</span> <span class="n">out</span>
+            <span class="nb">bool</span> <span class="n">all_same</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>       <span class="o">//</span><span class="n">see</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">yet</span> <span class="nb">all</span> <span class="n">node</span> <span class="n">well</span> <span class="n">assigned</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">){</span>
+                    <span class="n">all_same</span><span class="o">=</span><span class="n">false</span><span class="p">;</span>
+                   <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span>all_same<span class="o">){</span><span class="w"> </span>//if<span class="w"> </span>not<span class="w"> </span>update<span class="w"> </span>once<span class="w"> </span>to<span class="w"> </span>all<span class="w"> </span>same<span class="w"> </span>
+                <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">tmp_re</span><span class="o">=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>             <span class="o">//</span><span class="n">go</span> <span class="n">to</span> <span class="nb">next</span> <span class="p">(</span><span class="n">the</span> <span class="n">node</span> <span class="n">before</span> <span class="n">now</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>因為是stack的關係，所以由第一個看起時，實際上是從終點看起，由此將舊的
+path與新的path由後往前比對，在發現不同的節點時，若為使用中的點也可直接
+連至共通點，再繼續往下比較，若該新的點並未使用則直接將其連至共通的點則
+可一直繼續跟新的path做比較往後連，直到下一點是使用中的節點(因為未使用的
+節點沒有資訊drop的問題)，跟其連上後，原本連到共通點之間與新的path不同的
+點即可release至非使用終點，如此起始點資訊就不會drop，也不會產生cycle的
+問題<br />
+<img alt="node_graph4" src="_images/node_graph4.png" /><br />
+<img alt="node_graph5" src="_images/node_graph5.png" /><br />
+<img alt="node_graph6" src="_images/node_graph6.png" /><br />
+<img alt="node_graph7" src="_images/node_graph7.png" /><br />
+<img alt="node_graph8" src="_images/node_graph8.png" /></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">do_fin</span><span class="p">(</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">strt</span><span class="p">,</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">result_arr</span><span class="p">,</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">strt_arr</span><span class="p">,</span><span class="nb">int</span> <span class="n">n</span><span class="p">){</span>  <span class="o">//</span><span class="n">do</span> <span class="n">the</span> <span class="n">updates</span>
+    <span class="n">linked_list</span> <span class="o">*</span><span class="n">tmp_re</span><span class="o">=</span><span class="n">result</span><span class="p">,</span><span class="o">*</span><span class="n">tmp_strt</span><span class="o">=</span><span class="n">strt</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">non_used_assigned</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">((</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)){</span>             <span class="o">//</span><span class="k">if</span> <span class="n">have</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span><span class="p">,</span> <span class="ow">and</span> <span class="n">what</span> <span class="n">their</span> <span class="nb">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">non_used_assigned</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>                                    <span class="o">//</span> <span class="n">have</span> <span class="n">assign</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span> <span class="o">=</span><span class="mi">1</span>
+            <span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>    <span class="o">//</span><span class="n">assign</span> <span class="nb">all</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span> <span class="n">to</span> <span class="n">their</span> <span class="n">right</span> <span class="nb">next</span> <span class="n">node</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">non_used_assigned</span><span class="p">){</span>
+        <span class="n">tranverse</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>           <span class="o">//</span><span class="k">if</span> <span class="n">have</span> <span class="n">update</span><span class="p">,</span> <span class="nb">print</span> <span class="n">out</span>
+    <span class="p">}</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="nb">bool</span> <span class="n">non_release_need_count</span><span class="o">=</span><span class="n">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">num</span><span class="p">){</span>       <span class="o">//</span><span class="n">due</span> <span class="n">to</span> <span class="n">stack</span><span class="p">,</span><span class="n">start</span> <span class="k">with</span> <span class="n">the</span> <span class="n">destiny</span> <span class="n">node</span><span class="p">,</span> <span class="k">if</span> <span class="n">dif</span> <span class="n">go</span> <span class="ow">in</span> <span class="n">loop</span>
+            <span class="n">strt_arr</span><span class="p">[</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>  <span class="o">//</span><span class="n">connect</span> <span class="n">now</span> <span class="n">directly</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">node</span> <span class="n">it</span> <span class="n">should</span> <span class="n">have</span>
+            <span class="n">tranverse</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>           <span class="o">//</span><span class="nb">print</span> <span class="n">out</span> <span class="n">the</span> <span class="n">updates</span>
+            <span class="n">linked_list</span> <span class="o">*</span><span class="n">tmp_store_tmp_strt</span><span class="o">=</span><span class="n">tmp_strt</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="o">!=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">){</span>    <span class="o">//</span><span class="k">if</span> <span class="n">have</span> <span class="n">no</span> <span class="n">non</span> <span class="n">used</span> <span class="n">nodes</span> <span class="n">after</span> <span class="n">the</span> <span class="n">connection</span>
+                <span class="k">while</span><span class="p">(</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="o">!=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">){</span>   <span class="o">//</span><span class="kn">from</span> <span class="nn">the</span> <span class="n">strt</span> <span class="nb">list</span> <span class="n">start</span><span class="p">,</span> <span class="n">update</span> <span class="n">till</span> <span class="n">the</span> <span class="n">node</span> <span class="n">working</span> <span class="n">on</span> <span class="n">now</span>
+                    <span class="k">if</span><span class="p">((</span><span class="n">result_arr</span><span class="p">[</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">)){</span>  <span class="o">//</span> <span class="k">if</span> <span class="nb">all</span> <span class="n">node</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">isn</span><span class="s1">&#39;t all to -1</span>
+                        <span class="n">non_release_need_count</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>     <span class="o">//</span><span class="n">need</span> <span class="n">to</span> <span class="n">update</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">tmp_strt</span><span class="o">=</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>      
+                <span class="p">}</span>
+                <span class="n">tmp_strt</span><span class="o">=</span><span class="n">tmp_store_tmp_strt</span><span class="p">;</span>          <span class="o">//</span><span class="n">point</span> <span class="n">tmp_strt</span> <span class="n">back</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">non_release_need_count</span><span class="p">){</span>         <span class="o">//</span> <span class="k">if</span> <span class="n">need</span> <span class="n">update</span>
+                    <span class="k">while</span><span class="p">(</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="o">!=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">){</span>       <span class="o">//</span><span class="n">update</span> <span class="nb">all</span> <span class="n">between</span> <span class="n">strt_arr</span> <span class="n">to</span> <span class="n">now</span>
+                        <span class="n">strt_arr</span><span class="p">[</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>
+                        <span class="n">tmp_strt</span><span class="o">=</span><span class="n">tmp_strt</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">tranverse</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>    <span class="o">//</span><span class="nb">print</span> <span class="n">out</span> <span class="n">the</span> <span class="n">new</span> <span class="n">updates</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="n">node</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>        <span class="o">//</span><span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="n">start</span> <span class="n">node</span> <span class="k">break</span> <span class="n">out</span>
+            <span class="nb">bool</span> <span class="n">all_same</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>       <span class="o">//</span><span class="n">check</span> <span class="k">if</span> <span class="nb">all</span> <span class="n">same</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">!=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">){</span>
+                    <span class="n">all_same</span><span class="o">=</span><span class="n">false</span><span class="p">;</span>
+                    <span class="n">strt_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="o">=</span><span class="n">result_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span>all_same<span class="o">){</span><span class="w"> </span>//if<span class="w"> </span>not<span class="w"> </span>all<span class="w"> </span>same,<span class="w"> </span>fix<span class="w"> </span>it<span class="w"> </span>and<span class="w"> </span>print<span class="w"> </span>out
+                <span class="n">tranverse</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">tmp_re</span><span class="o">=</span><span class="n">tmp_re</span><span class="o">-&gt;</span><span class="nb">next</span><span class="p">;</span>   <span class="o">//</span><span class="n">go</span> <span class="n">to</span> <span class="nb">next</span> <span class="p">(</span><span class="n">the</span> <span class="n">node</span> <span class="n">before</span> <span class="n">now</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>3. 結果<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><img alt="node_graph9" src="_images/node_graph9.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">main</span>
+<span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,(</span><span class="n">count_fin</span><span class="p">(</span><span class="n">strt</span><span class="p">,</span><span class="n">result</span><span class="p">,</span><span class="n">result_arr</span><span class="p">,</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">)));</span>     <span class="o">//</span><span class="nb">print</span> <span class="n">out</span> <span class="n">the</span> <span class="n">step</span> <span class="n">num</span>
+<span class="n">tranverse</span><span class="p">(</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!(</span>compare<span class="o">(</span>strt,result<span class="o">))){</span><span class="w">                        </span>//if<span class="w"> </span>two<span class="w"> </span>list<span class="w"> </span>not<span class="w"> </span>same<span class="w"> </span>-&gt;<span class="w"> </span>update
+    <span class="n">do_fin</span><span class="p">(</span><span class="n">strt</span><span class="p">,</span><span class="n">result</span><span class="p">,</span><span class="n">result_arr</span><span class="p">,</span><span class="n">strt_arr</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>         <span class="o">//</span> <span class="n">do</span> <span class="n">updates</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">function</span>
+<span class="n">void</span> <span class="n">tranverse</span><span class="p">(</span><span class="n">linked_list</span> <span class="o">*</span><span class="n">strt_arr</span><span class="p">,</span><span class="nb">int</span> <span class="n">n</span><span class="p">){</span>            <span class="o">//</span><span class="nb">print</span> <span class="n">out</span> <span class="n">arr</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">!=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> &quot;</span><span class="p">,(</span><span class="n">strt_arr</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,(</span><span class="n">strt_arr</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HW1-Maze.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Maze</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HW3-Quatum_Network.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quantum Network</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">題目簡介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">運作方式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n">1.開始: 輸入n、新舊路徑</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2. 過程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3. 結果</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hutaki Hare
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
