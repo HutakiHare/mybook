@@ -1,0 +1,9 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: HW1-Maze
+- file: HW2-Routing_Path_Update
+- file: HW3-Quatum_Network
