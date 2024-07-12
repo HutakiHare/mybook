@@ -166,7 +166,7 @@ for(int k=2;k<=timeslot;k++){          //scan through all node see if mem isn't 
 
  5. 將成功經過判斷的request加入陣列中(numerlogy)，並與memory limit比較，若沒
     問題，則更新另一個陣列，若不通過則複製另一陣列(加入新樹前的)至本陣列(加
-    入新樹的)
+    入新樹後的)
 ```
 if(!ok_numerlogy){     //over ->reject request
     continue;

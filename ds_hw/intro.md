@@ -7,7 +7,7 @@ It does not show full codes - check out [My_GitHub](https://github.com/HutakiHar
 
 Check out the content pages bundled with this sample book to see more.
 
-**Recommend Reading With White Background**
+**Recommend Reading With White Background to have better viewing experience :)**
 
 ```{tableofcontents}
 ```
