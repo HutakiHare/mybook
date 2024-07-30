@@ -30,3 +30,11 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+# newly added
+
+launch_buttons:
+  notebook_interface: "classic"
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
