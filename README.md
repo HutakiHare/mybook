@@ -1,6 +1,6 @@
 # mybook
 
-This is a record of what my works.
+This is a record of my works.
 
 ## Usage
 
