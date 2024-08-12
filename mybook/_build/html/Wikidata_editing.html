@@ -418,7 +418,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">操作成果</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wikidata 檢索使用與狀況</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wikidata 檢索使用與狀況</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">觀察結果</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -496,12 +499,15 @@ document.write(`
 </div></blockquote>
 <p><img alt="螢幕擷取畫面 2024-07-31 171359" src="_images/12.png" />
 <img alt="螢幕擷取畫面 2024-07-31 171337" src="_images/13.png" /></p>
+<section id="id7">
+<h3>觀察結果<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>兩者或許都是對的職業選擇，seiyū其實是屬於actor的，但因為索引對象的資料中只填寫了較大範圍的內容(actor)，會使得在查詢seiyū時找不到該號人物，因為seiyū屬於actor並不代表actor屬於seiyū，所以會造成索引結果不完全，而這個問題也無法被”加上上級分類”解決，因為有的職業資料是被放在instance of，有的在subclass of，但搜索人物職業時它又放在occupation，所以索引時是該用occupation/instance of/subclass of是很大的問題，更不用說不論選哪個找到的東西都不是完整的。</p>
 <p><strong>∴</strong> 應該需要一致有的基準</p>
 <p>若在編輯Wikidata時，在得到有其他子集的輸入時(大範圍)，可以秀出這些子集供編輯者選擇，盡量讓編輯者可以把資料填到更詳盡，若編輯者不確定則在子集的部分選不確定，讓其他編輯者來補齊，而資料的處理則可以看看要不要讓該資料先屬於全部的子集，使得不確定的也可先被看見。</p>
 <p>還有限定資料填寫的地方(有看到人的”instance of”填寫了職業)，這個property在檢索已經有欸使用到了(P跟Q)，那是不是也可以歸類職業只能填在”occupation”，在”instance of”處就不可以填寫，這樣雖然會造成依些不合理(ex:”voice actor”確實是 instance of “actor”)，但這樣在檢索上會比較一致(現行方案的每個property都是相對於該項目而言)，在任何地方都可以使用(more globally)。</p>
 </div></blockquote>
+</section>
 </section>
 </section>
 
@@ -576,7 +582,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">操作成果</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wikidata 檢索使用與狀況</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wikidata 檢索使用與狀況</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">觀察結果</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
