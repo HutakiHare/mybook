@@ -1,0 +1,1137 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BinderHub Snakemake 使用 mock-up &#8212; Hutaki Hare&#39;s Work Records</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'snakemake_report';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="360_degree 作業" href="360_degree_filming.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Hutaki Hare's Work Records - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Hutaki Hare's Work Records - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my work record
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">2024 Academia Sinica IIS summer-intern</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RDM_assignment.html">Research Data Management 作業</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QGIS-MinXiong_Tour_Map.html">QGIS 作業</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OSM-Public_Transportation_in_Taipei.html">Open Street Map 作業</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wikidata_editing.html">Wikidata 作業</a></li>
+<li class="toctree-l1"><a class="reference internal" href="360_degree_filming.html">360_degree 作業</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">BinderHub Snakemake 使用 mock-up</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/HutakiHare/mybook/blob/main/mybook/snakemake_report.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HutakiHare/mybook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HutakiHare/mybook/issues/new?title=Issue%20on%20page%20%2Fsnakemake_report.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/snakemake_report.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>BinderHub Snakemake 使用 mock-up</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-overview">I. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前言</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">簡介</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">內容概述</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-snakemake">II. Snakemake 基本教學</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mamba-setup">mamba Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">環境設置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">劇本</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-attribute">rule attribute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config-yaml">配置文件 (config.yaml)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">內建輸出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snakemake">Snakemake參數</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iii">III. 範例</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">範例</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ex1-data-analysis-of-saccharomyces-cerevisiae-brewer-s-yeast">EX1: Data analysis of saccharomyces cerevisiae ( Brewer’s yeast)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ex2">EX2: 台北市金價與結婚人數分析(以前面為提及過的內容為主)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="binderhub-snakemake-mock-up">
+<h1>BinderHub Snakemake 使用 mock-up<a class="headerlink" href="#binderhub-snakemake-mock-up" title="Link to this heading">#</a></h1>
+<section id="i-overview">
+<h2>I. Overview<a class="headerlink" href="#i-overview" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>前言<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://data.depositar.io/">Depositar</a>為得讓所儲存的資料集達成FAIR data(Findable, Accessible, Interoperable, Reusable)，引進了<a class="reference external" href="https://binderhub.readthedocs.io/en/latest/">BinderHub</a>來讓資料得以在內部進行運作驗證(interoperable)，而Snakemake的加入則是為了省去複雜的資料驗證程序，並讓資料更新可以只重新執行需要的部分，降低資源使用，而”省去複雜的資料驗證程序”的部分則可以彈性使用，讓使用者也可以以自己的資料去驗證實驗結果(Reusable)。</p>
+<p>這份文件簡單的介紹了Snakemake的使用方式並模擬加入BinderHub</p>
+</section>
+<section id="id2">
+<h3>簡介<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>snakemake 是一個處理工作流程的工具，透過與其他軟件搭配(ex: samtools, bwa …)或單純使用shell, python指令建立各種規則(rule)對資料進行更分析、產生結果報告，類似於Makefile，但有功能使用更使用者友善一些。</p>
+</section>
+<section id="id3">
+<h3>內容概述<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>利用Snakemake來讓作者將其研究方法(分析順序)的Snakefile、<a class="reference external" href="http://script.sh">script.sh</a>、資料上傳至depositar，當其他使用者帶著自己的資料集來驗證時，上傳至binder中，在終端機中輸入”bash <a class="reference external" href="http://script.sh">script.sh</a>”，系統便會自動下載snakemake與snakedeploy或其他所需要的環境，並直接執行Snakefile，而根據不同需求，Snakefile可能會要取用到其他地方(ex: Github)的資源，或就在本地端執行即可，若想將資料的處理分為前置作業與資料分析，可使用多個Snakefile來達到多層次的工作流程。而Snakemake除了產生出工作流程後產生的成果外，也有內建的功能可以靠指令產生工作流程圖(DAG有向無環圖)或report(.zip,html…)。</p>
+</section>
+</section>
+<section id="ii-snakemake">
+<h2>II. Snakemake 基本教學<a class="headerlink" href="#ii-snakemake" title="Link to this heading">#</a></h2>
+<section id="mamba-setup">
+<h3>mamba Setup<a class="headerlink" href="#mamba-setup" title="Link to this heading">#</a></h3>
+<p>(來源:<a class="reference external" href="https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-mambaforge">安裝流程</a>)</p>
+<ul class="simple">
+<li><p>Linux 環境</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh -o Mambaforge-Linux-x86_64.sh
+$ bash Mambaforge-Linux-x86_64.sh
+</pre></div>
+</div>
+<blockquote>
+<div><p>下載跟安裝Miniconda 3</p>
+</div></blockquote>
+<p><img alt="mamba-1" src="_images/mamba-1.png" /><br />
+<img alt="mamba-2" src="_images/mamba-2.png" /><br />
+<img alt="mamba-3" src="_images/mamba-3.png" /></p>
+<blockquote>
+<div><p>一直按Enter繼續</p>
+</div></blockquote>
+<p><img alt="mamba-4" src="_images/mamba-4.png" /></p>
+<blockquote>
+<div><p>yes</p>
+</div></blockquote>
+<p><img alt="mamba-5" src="_images/mamba-5.png" /></p>
+<blockquote>
+<div><p>這樣就可以使用mamba了</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h3>環境設置<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># environment.yaml</span>
+
+<span class="n">name</span><span class="p">:</span> <span class="n">environment</span>               <span class="c1"># 環境名稱</span>
+
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">bioconda</span>                    <span class="c1"># 生物信息學軟體包的 channel</span>
+
+<span class="n">dependencies</span><span class="p">:</span>                   <span class="c1"># 函式庫</span>
+  <span class="o">-</span> <span class="n">snakemake</span><span class="o">-</span><span class="n">minimal</span> <span class="o">&gt;=</span><span class="mf">8.4.4</span>   <span class="c1"># 可強調版本</span>
+  <span class="o">-</span> <span class="n">python</span>
+  <span class="o">-</span> <span class="n">matplotlib</span>
+  <span class="o">-</span> <span class="n">pandas</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">plotly</span>
+  <span class="o">-</span> <span class="n">folium</span>
+  <span class="o">-</span> <span class="n">pip</span>                         <span class="c1"># 這裡是 Conda 自身的 pip 包</span>
+
+  <span class="c1"># 如果有需要從 PyPI 安裝的包，可以這樣放在 pip 下  (conda沒有的)</span>
+  <span class="c1"># - pip:</span>
+  <span class="c1">#   - python_package_not_in_conda</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>劇本<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># script.sh
+
+#!/bin/bash
+
+# Check if Snakemake is installed, if not, install it
+if ! command -v snakemake &amp;&gt; /dev/null
+then
+    echo &quot;Snakemake not found, installing...&quot;
+    
+    conda activate base
+    mamba create -c conda-forge -c bioconda --name snakemake snakemake snakedeploy -y
+
+fi
+
+# Initialize conda in the script
+source $(conda info --base)/etc/profile.d/conda.sh
+
+conda activate snakemake
+
+# Run the Snakemake workflow
+snakemake  --cores all --use-conda
+</pre></div>
+</div>
+<ul>
+<li><p>先確認目前有沒snakemake</p>
+<p>-&gt;  沒有就安裝</p>
+<p>-&gt;  有就啟動環境</p>
+</li>
+<li><p>因為在建立環境時會問y/n，所以加 -y 回答</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if ! command -v snakemake &amp;&gt; /dev/null
+then
+    echo &quot;Snakemake not found, installing...&quot;
+    # conda install -n base -c conda-forge mamba
+    conda activate base
+    mamba env create -n snakemake --file environment.yaml || mamba env update -n snakemake --file environment.yaml
+    # mamba create -c conda-forge -c bioconda -n snakemake snakemake
+fi
+</pre></div>
+</div>
+<p>ex2(視範例)的用法，不適下載snakemake與snakedeploy，而是安裝environment.yaml裡所需的環境，以 <code class="docutils literal notranslate"><span class="pre">||</span></code> 來判斷若已有環境，則看是否更新</p>
+</section>
+<section id="rules">
+<h3>rules<a class="headerlink" href="#rules" title="Link to this heading">#</a></h3>
+<p>規則範例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">snakemake.utils</span> <span class="kn">import</span> <span class="n">min_version</span>
+<span class="n">min_version</span><span class="p">(</span><span class="s2">&quot;6.10.0&quot;</span><span class="p">)</span>
+
+<span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">directory</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">),</span>
+        <span class="n">directory</span><span class="p">(</span><span class="s2">&quot;report&quot;</span><span class="p">)</span>  
+
+<span class="n">rule</span> <span class="n">unzip_workflow</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="s2">&quot;workflow.zip&quot;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;workflow/Snakefile&quot;</span>
+    <span class="n">shell</span><span class="p">:</span>
+        <span class="s2">&quot;unzip </span><span class="si">{input}</span><span class="s2"> -d ./&quot;</span>
+
+<span class="n">rule</span> <span class="n">unzip_file</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="s2">&quot;data.zip&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;workflow/Snakefile&quot;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">directory</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;workflow/new_snakefile&quot;</span>
+    <span class="n">shell</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        unzip {input[0]} -d {output[0]}</span>
+<span class="sd">        mv {input[1]} {output[1]}</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="n">rule</span> <span class="n">run_workflow</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> 
+        <span class="s2">&quot;workflow/new_snakefile&quot;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;fin_workflow&quot;</span>
+    <span class="n">shell</span><span class="p">:</span> 
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        set +e</span>
+<span class="sd">        snakemake -s {input} --cores all --use-conda</span>
+<span class="sd">        set -e</span>
+<span class="sd">        touch fin_workflow</span>
+<span class="sd">        mv workflow/new_snakefile workflow/Snakefile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+<span class="n">rule</span> <span class="n">generate_report</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">rules</span><span class="o">.</span><span class="n">run_workflow</span><span class="o">.</span><span class="n">output</span>
+    <span class="n">output</span><span class="p">:</span> 
+        <span class="s2">&quot;report.zip&quot;</span>
+    <span class="n">shell</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        snakemake -s workflow/Snakefile --report {output}</span>
+<span class="sd">        rm -rf {input}</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="n">rule</span> <span class="n">unzip_report</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">rules</span><span class="o">.</span><span class="n">generate_report</span><span class="o">.</span><span class="n">output</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">directory</span><span class="p">(</span><span class="s2">&quot;report&quot;</span><span class="p">)</span>
+    <span class="n">shell</span><span class="p">:</span>
+        <span class="s2">&quot;unzip </span><span class="si">{input}</span><span class="s2"> -d </span><span class="si">{output}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p><strong>rule all 是 $ snakemake 的時候跑的</strong></p>
+<p>形成下圖流程圖 (順序由上而下)</p>
+<p><img alt="binder2-dag" src="_images/binder2-dag.png" /></p>
+</section>
+<section id="rule-attribute">
+<h3>rule attribute<a class="headerlink" href="#rule-attribute" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>input:</p></li>
+</ul>
+<blockquote>
+<div><p>放入這個rule會用到的檔案(可以不用用到的都放，但放較好)，為達成workflow，會放入前一個rule的output來強調順序</p>
+<p>路徑名需加 <strong>“ “</strong></p>
+<p>多個輸出以 <strong>,</strong> 分開 (ex: “report.zip” <strong>,</strong> directory(“data”))</p>
+<p>有放在input的，在其他地方使用時，就可以用{input}取代，反之，若沒有，則得打出完整路徑(ex: workflow/Snakefile )，有多個input時，在其他地方按順在input的順序以{input[0]},{input[1]}…使用</p>
+<p>指定rule的輸出為input: rules.rule_name,output</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>output:</p></li>
+</ul>
+<blockquote>
+<div><p>放入這個rule會輸出的檔案(可以不用都放，但放較好)，為達成workflow，駛下一個rule可以靠的此rule的output建立順序</p>
+<p>路徑名需加 <strong>“ “</strong></p>
+<p>多個輸出以 <strong>,</strong> 分開 (ex: “report.zip” <strong>,</strong> directory(“data”))</p>
+<p>有放在output的，在其他地方使用時，就可以用{output}取代，反之，若沒有，則得打出完整路徑，有多個output時，在其他地方按順在output的順序以{output[0]},{output[1]}…使用</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">generate_report</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">rules</span><span class="o">.</span><span class="n">run_workflow</span><span class="o">.</span><span class="n">output</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;report.zip&quot;</span>
+    <span class="n">shell</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        snakemake -s workflow/Snakefile --report {output}</span>
+<span class="sd">        rm -rf {input}</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>shell:</p></li>
+</ul>
+<blockquote>
+<div><p>寫入所要執行的shell指令</p>
+<p>單個指令用 <strong>“ “</strong> (ex: “snakemake -s workflow/Snakefile –report {output}”)</p>
+<p>多個指令用 <strong>‘’’ ‘’’</strong></p>
+<p>指令與python程式碼都要用 <strong>“”” “””</strong> 包住全部， <strong>僅python_code要另外用 python -c “..python code.. “ 在包python程式碼</strong> ，shell指令不用</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">data_update</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">rules</span><span class="o">.</span><span class="n">deploy</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">rules</span><span class="o">.</span><span class="n">deploy</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;workflow/new_snakefile&quot;</span>
+    <span class="n">shell</span><span class="p">:</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        python -c &quot;</span>
+<span class="s2">import re</span>
+<span class="s2"># Read the file</span>
+<span class="s2"> /* more */</span>
+<span class="s2">        &quot;</span>
+<span class="s2">        mv </span><span class="si">{input[0]}</span><span class="s2"> </span><span class="si">{output}</span><span class="s2">	# shell 指令</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>run:</p></li>
+</ul>
+<blockquote>
+<div><p>直接放入python程式碼，不用 “ “</p>
+<p>加入shell指令用 shell(“/…shell command…/”)</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">report</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">report_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+
+        <span class="c1"># 讀取 CSV 文件內容</span>
+        <span class="n">csv_content1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">m_csv</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="o">/*</span> <span class="n">more</span> <span class="o">*/</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>script:</p></li>
+</ul>
+<blockquote>
+<div><p>放入要執行的python_code_file</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">rule</span> <span class="n">ebar_chart</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="s2">&quot;resource/tp-economy.csv&quot;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;result/bar/e-bar.html&quot;</span>
+    <span class="n">script</span><span class="p">:</span>
+        <span class="s2">&quot;scripts/make_bar_chart.py&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>log:</p></li>
+</ul>
+<blockquote>
+<div><p>輸出日誌文件的路徑</p>
+<p>路徑名需加” “</p>
+<p>在shell的指令候用 … 2&gt; {log} 完成</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>params:</p></li>
+</ul>
+<blockquote>
+<div><p>傳遞額外的參數到 shell 指令或其他地方</p>
+<p>以{param}使用</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># toy example</span>
+<span class="n">params</span><span class="p">:</span>
+    <span class="n">extra_params</span><span class="o">=</span><span class="s2">&quot;--option1 value1 --option2 value2&quot;</span>
+<span class="n">shell</span><span class="p">:</span>
+    <span class="s2">&quot;process_data </span><span class="si">{input}</span><span class="s2"> </span><span class="si">{params.extra_params}</span><span class="s2"> &gt; </span><span class="si">{output}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>threads: 和resources:</p></li>
+</ul>
+<blockquote>
+<div><p>threads -&gt; 規則所需的CPU數量</p>
+<p>resources -&gt; 規則所需的如內存、磁碟空間…</p>
+</div></blockquote>
+</section>
+<section id="config-yaml">
+<h3>配置文件 (config.yaml)<a class="headerlink" href="#config-yaml" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># config.yaml</span>
+<span class="n">samples</span><span class="p">:</span>
+    <span class="n">A</span><span class="p">:</span> <span class="n">data</span><span class="o">/</span><span class="n">samples</span><span class="o">/</span><span class="n">A</span><span class="o">.</span><span class="n">fastq</span>
+    <span class="n">B</span><span class="p">:</span> <span class="n">data</span><span class="o">/</span><span class="n">samples</span><span class="o">/</span><span class="n">B</span><span class="o">.</span><span class="n">fastq</span>
+    <span class="n">C</span><span class="p">:</span> <span class="n">data</span><span class="o">/</span><span class="n">samples</span><span class="o">/</span><span class="n">C</span><span class="o">.</span><span class="n">fastq</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
+<span class="k">def</span> <span class="nf">get_bwa_map_input_fastqs</span><span class="p">(</span><span class="n">wildcards</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;samples&quot;</span><span class="p">][</span><span class="n">wildcards</span><span class="o">.</span><span class="n">sample</span><span class="p">]</span>
+<span class="n">rule</span> <span class="n">bwa_map</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="s2">&quot;data/genome.fa&quot;</span><span class="p">,</span>
+        <span class="n">get_bwa_map_input_fastqs</span>
+        <span class="c1"># &quot;data/samples/{sample}.fastq&quot;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;mapped_reads/</span><span class="si">{sample}</span><span class="s2">.bam&quot;</span>
+    <span class="n">params</span><span class="p">:</span>
+        <span class="n">rg</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;@RG\tID:</span><span class="si">{sample}</span><span class="s2">\tSM:</span><span class="si">{sample}</span><span class="s2">&quot;</span>
+    <span class="n">log</span><span class="p">:</span>
+        <span class="s2">&quot;logs/bwa_mem/</span><span class="si">{sample}</span><span class="s2">.log&quot;</span>
+    <span class="n">threads</span><span class="p">:</span> <span class="mi">8</span>
+    <span class="n">shell</span><span class="p">:</span>
+        <span class="s2">&quot;(bwa mem -R &#39;</span><span class="si">{params.rg}</span><span class="s2">&#39; -t </span><span class="si">{threads}</span><span class="s2"> </span><span class="si">{input}</span><span class="s2"> | &quot;</span>
+        <span class="s2">&quot;samtools view -Sb - &gt; </span><span class="si">{output}</span><span class="s2">) 2&gt; </span><span class="si">{log}</span><span class="s2">&quot;</span>
+
+
+<span class="n">configfile</span><span class="p">:</span> <span class="s2">&quot;config.yaml&quot;</span> <span class="c1"># config file 的路徑</span>
+	<span class="o">/..</span><span class="n">more</span><span class="o">../</span>
+<span class="n">rule</span> <span class="n">bcftools_call</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">fa</span><span class="o">=</span><span class="s2">&quot;data/genome.fa&quot;</span><span class="p">,</span>
+        <span class="n">bam</span><span class="o">=</span><span class="n">expand</span><span class="p">(</span><span class="s2">&quot;sorted_reads/</span><span class="si">{sample}</span><span class="s2">.sorted.bam&quot;</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;samples&quot;</span><span class="p">]),</span>
+        <span class="n">bai</span><span class="o">=</span><span class="n">expand</span><span class="p">(</span><span class="s2">&quot;sorted_reads/</span><span class="si">{sample}</span><span class="s2">.sorted.bam.bai&quot;</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;samples&quot;</span><span class="p">])</span>
+<span class="o">/..</span><span class="n">more</span><span class="o">../</span>
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>“config[“samples”][wildcards.sample]”取得 config 檔案裡sample下的路徑，在shell中使用{input}時會將三個路徑都當輸入跑一遍</p></li>
+<li><p>{sample} 是通配符，會得到樣本名稱(<strong>不是路徑</strong>，所以<code class="docutils literal notranslate"><span class="pre">logs/bwa_mem/</span></code>裡面是A,B,C的log檔)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bam=expand(&quot;sorted_reads/{sample}.sorted.bam&quot;,</span> <span class="pre">sample=config[&quot;samples&quot;])</span></code>會讓 bam = sorted_reads/{A,B,C}.sorted.bam 三個檔案，在shell用 {input.bam} 會三個檔案都跑</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3>內建輸出<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>輸出工作流程圖(DAG有向無環圖)
+<code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">–dag</span> <span class="pre">**/target/**</span> <span class="pre">|</span> <span class="pre">dot</span> <span class="pre">-Tsvg</span> <span class="pre">&gt;</span> <span class="pre">**/file_output_name/**.svg</span></code></p></li>
+</ul>
+<p><img alt="dag" src="_images/dag.png" /></p>
+<ul class="simple">
+<li><p>輸出report (內建workflow, statistics, about)
+<code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">-s(op)</span> <span class="pre">**/target_snakefile/**</span> <span class="pre">–report</span> <span class="pre">**/report_name/**</span> <span class="pre">(.zip</span> <span class="pre">or</span> <span class="pre">.html</span> <span class="pre">…)</span></code></p></li>
+</ul>
+<p><img alt="report-dag" src="_images/report-dag.png" /></p>
+</section>
+<section id="snakemake">
+<h3>Snakemake參數<a class="headerlink" href="#snakemake" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>-n (–dry-run) : 模擬試跑workflow(for debug) ex: $ snakemake -n</p></li>
+<li><p>-p : 列出所有紀錄(for debug)
+ex: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-p</span></code></p></li>
+<li><p>-f (-F) : 強制重新跑完整workflow
+ex: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-f</span></code></p></li>
+<li><p>-n (-name): 指定名稱
+ex: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">example_env</span></code></p></li>
+<li><p>–file: 指定安裝環境
+ex: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">example_env</span> <span class="pre">–file</span> <span class="pre">environment.yaml</span></code></p></li>
+<li><p>-s : 指定跑的Snakefile
+ex: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-s</span> <span class="pre">new_snakefile</span> <span class="pre">–report</span> <span class="pre">report.html</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="iii">
+<h2>III. 範例<a class="headerlink" href="#iii" title="Link to this heading">#</a></h2>
+</section>
+<section id="id7">
+<h2>範例<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="ex1-data-analysis-of-saccharomyces-cerevisiae-brewer-s-yeast">
+<h3><a class="reference external" href="https://pid.depositar.io/ark:37281/k56253r3p">EX1: Data analysis of saccharomyces cerevisiae ( Brewer’s yeast)</a><a class="headerlink" href="#ex1-data-analysis-of-saccharomyces-cerevisiae-brewer-s-yeast" title="Link to this heading">#</a></h3>
+<p>(credit to <a class="reference external" href="https://github.com/snakemake-workflows/rna-seq-star-deseq2">Catalog example</a>)</p>
+<p>(1) 作者在depositar上資料集放入script,Snakefile,測資, workflow.zip(optional)</p>
+<p><img alt="data" src="_images/data.png" /></p>
+<p>(2) 使用者在BinderHub中可將data.zip, sample, units更換為自己的資料，或是直接跑測試資料<br />
+<img alt="upload" src="_images/upload.png" /></p>
+<blockquote>
+<div><p>上傳資料</p>
+</div></blockquote>
+<p><img alt="rename_delete" src="_images/rename_delete.png" /></p>
+<blockquote>
+<div><p>重新命名或刪除</p>
+</div></blockquote>
+<p><img alt="terminal" src="_images/terminal.png" /></p>
+<blockquote>
+<div><p>打開終端機</p>
+</div></blockquote>
+<p><img alt="bash" src="_images/bash.png" /></p>
+<blockquote>
+<div><p>在終端機中輸入 $ bash <a class="reference external" href="http://script.sh">script.sh</a></p>
+</div></blockquote>
+<p>(3) Snakefile便會自動跑資料分析，並將結果從zip檔解壓縮成資料夾，使用者可在資料夾中的html檔中查看分析結果</p>
+<p><img alt="task" src="_images/task_to_do.png" /></p>
+<blockquote>
+<div><p>秀出要執行的工作</p>
+</div></blockquote>
+<p><img alt="done" src="_images/done.png" /></p>
+<blockquote>
+<div><p>100% done</p>
+</div></blockquote>
+<p><img alt="report" src="_images/report.png" /></p>
+<blockquote>
+<div><p>report的html檔</p>
+</div></blockquote>
+</section>
+<section id="ex2">
+<h3><a class="reference external" href="https://pid.depositar.io/ark:37281/k5b8f3n3j">EX2: 台北市金價與結婚人數分析</a>(以前面為提及過的內容為主)<a class="headerlink" href="#ex2" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>利用而外的pyhton code得到金價與結婚對數的bar chart</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make_bar_chart.py</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+
+<span class="c1"># Access the input and output files from Snakemake</span>
+<span class="n">input_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">snakemake</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">snakemake</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;marriage&#39;</span> <span class="ow">in</span> <span class="n">input_file</span><span class="p">:</span>
+    <span class="n">col1</span> <span class="o">=</span> <span class="s1">&#39;結婚對數/總計[對]&#39;</span>
+    <span class="n">col2</span> <span class="o">=</span> <span class="s1">&#39;年別&#39;</span>
+    <span class="n">layout_title</span> <span class="o">=</span> <span class="s1">&#39;台北結婚對數變化圖&#39;</span>
+    <span class="n">ytitle</span> <span class="o">=</span> <span class="s1">&#39;結婚對數/總計[對]&#39;</span>
+    <span class="n">markcolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+<span class="k">elif</span> <span class="s1">&#39;economy&#39;</span> <span class="ow">in</span> <span class="n">input_file</span><span class="p">:</span>
+    <span class="n">col1</span> <span class="o">=</span> <span class="s1">&#39;黃金[飾金]市價[元/臺錢]&#39;</span>
+    <span class="n">col2</span> <span class="o">=</span> <span class="s1">&#39;年底別&#39;</span>
+    <span class="n">layout_title</span> <span class="o">=</span> <span class="s1">&#39;台北黃金市價變化圖&#39;</span>
+    <span class="n">ytitle</span> <span class="o">=</span> <span class="s1">&#39;黃金市價[元/臺錢]&#39;</span>
+    <span class="n">markcolor</span> <span class="o">=</span> <span class="s1">&#39;gold&#39;</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col2</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col1</span><span class="p">],</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">markcolor</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="n">layout_title</span><span class="p">,</span>
+    <span class="n">title_font_size</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;年分&quot;</span><span class="p">),</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">ytitle</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">bar</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>在snakefile裡產生html檔</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
+
+	<span class="o">/..</span><span class="n">more</span><span class="o">../</span>
+<span class="n">rule</span> <span class="n">mbar_chart</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="s2">&quot;resource/tp-marriage.csv&quot;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;result/bar/m-bar.html&quot;</span>
+    <span class="n">script</span><span class="p">:</span>
+        <span class="s2">&quot;scripts/make_bar_chart.py&quot;</span>
+
+	<span class="o">/..</span><span class="n">more</span><span class="o">../</span>
+
+<span class="n">rule</span> <span class="n">custom_report</span><span class="p">:</span>
+    
+    <span class="o">/..</span><span class="n">more</span><span class="o">../</span>
+
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;new_report.html&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dag_graph.svg&quot;</span>
+    <span class="n">run</span><span class="p">:</span>
+        <span class="c1"># generate the DAG graph</span>
+        <span class="n">shell</span><span class="p">(</span><span class="s2">&quot;snakemake --dag | dot -Tsvg &gt; </span><span class="si">{output[1]}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># read report content</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">report</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">report_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+       
+        <span class="c1"># read CSV file contents</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">m_csv</span><span class="p">)</span> <span class="k">as</span> <span class="n">f1</span><span class="p">:</span>
+            <span class="n">csv_content1</span> <span class="o">=</span> <span class="n">f1</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">e_csv</span><span class="p">)</span> <span class="k">as</span> <span class="n">f2</span><span class="p">:</span>
+            <span class="n">csv_content2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+       
+        <span class="c1"># generate the new HTML content</span>
+        <span class="n">new_content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        &lt;!DOCTYPE html&gt;</span>
+<span class="s2">        &lt;html&gt;</span>
+<span class="s2">        &lt;head&gt;</span>
+<span class="s2">            &lt;title&gt;Report of the Relation Between Economy and Marriage&lt;/title&gt;</span>
+<span class="s2">        &lt;/head&gt;</span>
+<span class="s2">        &lt;body&gt;</span>
+<span class="s2">            &lt;h1&gt;Snakemake Report&lt;/h1&gt;</span>
+
+<span class="s2">           /..more../</span>
+
+<span class="s2">        &lt;/body&gt;</span>
+<span class="s2">        &lt;/html&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+       
+        <span class="c1"># write the new report</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_content</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<blockquote>
+<div><p>output 出 三個檔案</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>dag-graph<br />
+<img alt="dag-graph" src="_images/dag-graph.png" /></p></li>
+<li><p>new_report<br />
+<img alt="new_report" src="_images/new_report.png" /></p></li>
+<li><p>report<br />
+<img alt="old_report" src="_images/default_report.png" /></p></li>
+</ol>
+<p>github link: <a class="reference external" href="https://github.com/HutakiHare/2024AS-intern-snakemake/tree/778e4cb9a789f4eaef05ed3b4ebb866f7705828f/2024AS-intern-snakemake/%E7%AF%84%E4%BE%8B%E6%AA%94%E6%A1%88">https://github.com/HutakiHare/2024AS-intern-snakemake/tree/778e4cb9a789f4eaef05ed3b4ebb866f7705828f/2024AS-intern-snakemake/範例檔案</a></p>
+<p>depositar:<br />
++ <a class="reference external" href="https://pid.depositar.io/ark:37281/k5c4x9n7d">snakemake paper report</a><br />
++ <a class="reference external" href="https://pid.depositar.io/ark:37281/k56253r3p">ex1:Data analysis of saccharomyces cerevisiae ( Brewer’s yeast)</a><br />
++ <a class="reference external" href="https://pid.depositar.io/ark:37281/k5b8f3n3j">ex2: toy example-relation of gold price and marriage number</a></p>
+<p>webpage link: <a class="reference external" href="https://hutakihare.github.io/2027AS-intern-snakemake/">https://hutakihare.github.io/2027AS-intern-snakemake/</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="360_degree_filming.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">360_degree 作業</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-overview">I. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前言</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">簡介</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">內容概述</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-snakemake">II. Snakemake 基本教學</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mamba-setup">mamba Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">環境設置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">劇本</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">rules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-attribute">rule attribute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config-yaml">配置文件 (config.yaml)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">內建輸出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snakemake">Snakemake參數</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iii">III. 範例</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">範例</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ex1-data-analysis-of-saccharomyces-cerevisiae-brewer-s-yeast">EX1: Data analysis of saccharomyces cerevisiae ( Brewer’s yeast)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ex2">EX2: 台北市金價與結婚人數分析(以前面為提及過的內容為主)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By HutakiHare
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

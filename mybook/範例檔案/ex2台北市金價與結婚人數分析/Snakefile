@@ -1,0 +1,100 @@
+# Snakefile
+
+from snakemake.utils import min_version
+min_version("6.10.0")
+
+rule all:
+    input:
+        "report.html",
+        "dag_graph.svg"
+
+rule unzip_file:   
+    input:
+        "resource.zip",
+        "scripts.zip"
+    output:
+        "resource/tp-marriage.csv",
+        "resource/tp-economy.csv",
+        "scripts/make_bar_chart.py"
+    shell:
+        '''
+        unzip {input[0]} -d ./
+        unzip {input[1]} -d ./
+        '''
+
+rule mbar_chart:
+    input:
+        "resource/tp-marriage.csv"
+    output:
+        "result/bar/m-bar.html"
+    script:
+        "scripts/make_bar_chart.py"
+
+rule ebar_chart:
+    input:
+        "resource/tp-economy.csv"
+    output:
+        "result/bar/e-bar.html"
+    script:
+        "scripts/make_bar_chart.py"
+
+rule generate_report:
+    input:
+        "result/bar/m-bar.html",
+        "result/bar/e-bar.html"
+    output:
+        "report.html"
+    shell:
+        "snakemake --report {output}"
+
+
+rule custom_report:
+    input:
+        report = "report.html",
+        m_bar = "result/bar/m-bar.html",
+        e_bar = "result/bar/e-bar.html",
+        m_csv = "resource/tp-marriage.csv",
+        e_csv = "resource/tp-economy.csv"
+    output:
+        "new_report.html",
+        "dag_graph.svg"
+    run:
+        # generate the DAG graph
+        shell("snakemake --dag | dot -Tsvg > {output[1]}")
+
+        # read report content
+        with open(input.report) as f:
+            report_content = f.read()
+        
+        # read CSV file contents
+        with open(input.m_csv) as f1:
+            csv_content1 = f1.read()
+        with open(input.e_csv) as f2:
+            csv_content2 = f2.read()
+        
+        # generate the new HTML content
+        new_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Report of the Relation Between Economy and Marriage</title>
+        </head>
+        <body>
+            <h1>Snakemake Report</h1>
+
+            <h2>Results</h2>
+            <iframe src="{input.m_bar}" width="800" height="600"></iframe>
+            <iframe src="{input.e_bar}" width="800" height="600"></iframe>
+
+            <h2>Resource</h2>
+            <h3>Taipei Marriage CSV File</h3>
+            <pre>{csv_content1}</pre>
+            <h3>Taipei Gold Price CSV File</h3>
+            <pre>{csv_content2}</pre>
+        </body>
+        </html>
+        """
+        
+        # write the new report
+        with open(output[0], "w") as f:
+            f.write(new_content)

@@ -1,0 +1,61 @@
+from snakemake.utils import min_version
+min_version("6.10.0")
+
+rule all:
+    input:
+        directory("data"),
+        directory("report") 
+
+rule unzip_workflow:
+    input:
+        "workflow.zip"
+    output:
+        "workflow/Snakefile"
+    shell:
+        "unzip {input} -d ./"
+
+rule unzip_file:
+    input:
+        "data.zip",
+        "workflow/Snakefile"
+    output:
+        directory("data"),
+        "workflow/new_snakefile"
+    shell:
+        '''
+        unzip {input[0]} -d {output[0]}
+        mv {input[1]} {output[1]}
+        '''
+
+rule run_workflow:
+    input: 
+        "workflow/new_snakefile"
+    output:
+        "fin_workflow"
+    shell: 
+        '''
+        set +e
+        snakemake -s {input} --cores all --use-conda
+        set -e
+        touch fin_workflow
+        mv workflow/new_snakefile workflow/Snakefile
+        '''
+        
+rule generate_report:
+    input:
+        rules.run_workflow.output
+    output: 
+        "report.zip"
+    shell:
+        '''
+        snakemake -s workflow/Snakefile --report {output}
+        rm -rf {input}
+        '''
+
+rule unzip_report:
+    input:
+        rules.generate_report.output
+    output:
+        directory("report")
+    shell:
+        "unzip {input} -d {output}"

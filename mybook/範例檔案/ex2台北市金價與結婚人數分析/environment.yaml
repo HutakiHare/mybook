@@ -1,0 +1,20 @@
+name: environment               # 環境名稱
+
+channels:
+  - conda-forge
+  - bioconda                    # 生物信息學軟體包的 channel
+
+dependencies:                   # 函式庫
+  - snakemake-minimal >=8.4.4   # 可強調版本
+  - python
+  - matplotlib
+  - pandas
+  - numpy
+  - plotly
+  - folium
+  - pip                         # 這裡是 Conda 自身的 pip 包
+
+  # 如果有需要從 PyPI 安裝的包，可以這樣放在 pip 下  (conda沒有的)
+  # - pip:
+  #   - python_package_not_in_conda
+

@@ -1,0 +1,5 @@
+sample_name	unit_name	fq1	fq2	sra	adapters	strandedness
+A1	1	data/data/a.scerevisiae.1.fq	data/data/a.scerevisiae.2.fq		-a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA	yes
+B1	1	data/data/c.scerevisiae.1.fq	data/data/c.scerevisiae.2.fq		-a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA	none
+A2	1	data/data/c.scerevisiae.1.fq	data/data/c.scerevisiae.2.fq		-a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA	none
+B2	1	data/data/b.scerevisiae.1.fq	data/data/b.scerevisiae.2.fq		-a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA	reverse
