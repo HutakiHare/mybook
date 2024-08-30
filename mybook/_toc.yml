@@ -12,3 +12,4 @@ parts:
   - file: Wikidata_editing
   - file: 360_degree_filming
   - file: snakemake_report
+  - file: summer_internship_feedback
