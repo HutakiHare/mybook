@@ -13,3 +13,6 @@ parts:
   - file: 360_degree_filming
   - file: snakemake_report
   - file: summer_internship_feedback
+- caption: "After intern: Junior Year in CCU"
+  chapters:
+  - file: php_ui_of_indicator_lights_project
