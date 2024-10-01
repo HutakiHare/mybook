@@ -1,0 +1,1739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>indicator lights UI &#8212; Hutaki Hare&#39;s Work Records</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/mycss.css?v=71b81597" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'php_ui_of_indicator_lights_project';</script>
+    <script src="_static/myjs.js?v=fb2e096a"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Summer internship review" href="summer_internship_feedback.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Hutaki Hare's Work Records - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Hutaki Hare's Work Records - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my work record
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">2024 Academia Sinica IIS summer-intern</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RDM_assignment.html">Research Data Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QGIS-MinXiong_Tour_Map.html">QGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OSM-Public_Transportation_in_Taipei.html">Open Street Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wikidata_editing.html">Wikidata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="360_degree_filming.html">360_degree panoramic filmiing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake_report.html">BinderHub Snakemake 使用 mock-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summer_internship_feedback.html">Summer internship review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">After intern: Junior Year in CCU</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">indicator lights UI</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/HutakiHare/mybook/blob/main/mybook/php_ui_of_indicator_lights_project.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HutakiHare/mybook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HutakiHare/mybook/issues/new?title=Issue%20on%20page%20%2Fphp_ui_of_indicator_lights_project.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/php_ui_of_indicator_lights_project.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>indicator lights UI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">起始應有兩個資料庫</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerview">prerview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-interface">register interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data-file">save data file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login-interface">login interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login-data-interface">login data interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home">Home</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upload">upload</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-process">upload process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace">replace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run">run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-process">run process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-program">run_program</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="indicator-lights-ui">
+<h1>indicator lights UI<a class="headerlink" href="#indicator-lights-ui" title="Link to this heading">#</a></h1>
+<section id="environment">
+<h2>environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>XAMPP</p>
+<ul>
+<li><p>Apache</p></li>
+<li><p>MySQL</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id1">
+<h2>起始應有兩個資料庫<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><img alt="mysql" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20135156.png" /></p>
+<ul class="simple">
+<li><p>user_data: 存放該使用者的資料</p></li>
+<li><p>user_registration: 紀錄已註冊過的使用者</p></li>
+</ul>
+<blockquote>
+<div><p>CREATE TABLE users (<br />
+id INT AUTO_INCREMENT PRIMARY KEY,<br />
+username VARCHAR(30) NOT NULL,<br />
+email VARCHAR(50) NOT NULL,<br />
+password VARCHAR(255) NOT NULL<br />
+);</p>
+</div></blockquote>
+</section>
+<section id="prerview">
+<h2>prerview<a class="headerlink" href="#prerview" title="Link to this heading">#</a></h2>
+<p><img alt="preview" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/52136d60-5a1e-4b43-8380-6c54aca2bab9.gif" /></p>
+</section>
+<section id="register-interface">
+<h2>register interface<a class="headerlink" href="#register-interface" title="Link to this heading">#</a></h2>
+<p><img alt="register" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-28%20155649.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+<div class="highlight-php= notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh_TW&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;違規偵測系統&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type=&quot;text&quot;], input[type=&quot;email&quot;], input[type=&quot;password&quot;] {
+            width: 500px; /*調整輸入框的寬度*/
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type=&quot;submit&quot;] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=&quot;submit&quot;]:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login_btn {
+            display: inline-block;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .login_btn:hover {
+            background-color: #007bb5;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;save_data.php&quot; method=&quot;POST&quot;&gt;
+        &lt;h2&gt;註冊帳號&lt;/h2&gt;
+        &lt;label for=&quot;usr_name&quot;&gt;使用者名稱:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;usr_name&quot; name=&quot;usr_name&quot; required&gt;&lt;br&gt;
+        
+        &lt;label for=&quot;email_name&quot;&gt;電子郵件帳號:&lt;/label&gt;
+        &lt;input type=&quot;email&quot; id=&quot;email_name&quot; name=&quot;email_name&quot; required&gt;&lt;br&gt;
+        
+        &lt;label for=&quot;password&quot;&gt;密碼:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;&lt;br&gt;
+        
+        &lt;label for=&quot;double_check_pssword&quot;&gt;再次確認密碼:&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;double_check_psswd&quot; name=&quot;double_check_psswd&quot; required&gt;&lt;br&gt;
+        
+        &lt;input type=&quot;submit&quot; value=&quot;註冊帳號&quot;&gt;
+        &lt;a href=&quot;login.php&quot; class=&quot;login-btn&quot;&gt;已經有帳號？登入&lt;/a&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre></div>
+</div>
+</details></section>
+<section id="save-data-file">
+<h2>save data file<a class="headerlink" href="#save-data-file" title="Link to this heading">#</a></h2>
+<p><img alt="process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010343.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<?php
+<p><span class="math notranslate nohighlight">\(servername = &quot;localhost&quot;;
+\)</span>username = “root”; // MySQL 用戶名
+<span class="math notranslate nohighlight">\(password = &quot;&quot;; // MySQL 密碼
+\)</span>dbname = “user_registration”;</p>
+<p>// 建立連接
+<span class="math notranslate nohighlight">\(conn = new mysqli(\)</span>servername, <span class="math notranslate nohighlight">\(username, \)</span>password, $dbname);</p>
+<p>// 檢查連接
+if (<span class="math notranslate nohighlight">\(conn-&gt;connect_error) {
+    die(&quot;連接失敗: &quot; . \)</span>conn-&gt;connect_error);
+}</p>
+<p>// 檢查接收到POST請求
+if (<span class="math notranslate nohighlight">\(_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+    // 取得表單輸入的值
+    \)</span>usrname = <span class="math notranslate nohighlight">\(_POST['usr_name'];
+    \)</span>email = <span class="math notranslate nohighlight">\(_POST['email_name'];
+    \)</span>password = <span class="math notranslate nohighlight">\(_POST['password'];
+    \)</span>double_check_psswd = $_POST[‘double_check_psswd’];</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// 查詢資料庫中的使用者
+$sql_name = &quot;SELECT * FROM users WHERE username=&#39;$usrname&#39;&quot;;
+$name_result = $conn-&gt;query($sql_name);
+$sql_email = &quot;SELECT * FROM users WHERE email=&#39;$email&#39;&quot;;
+$email_result = $conn-&gt;query($sql_email);
+$new_page = &quot;https://localhost/register.php&quot;;
+$color = &quot;#FF3333&quot;;
+
+// 資料驗證
+if (empty($usrname) || empty($email) || empty($password) || empty($double_check_psswd)) {
+    echo &quot;所有欄位都是必填的！&quot;;
+} else if ($password != $double_check_psswd){
+    $message = &quot;輸入密碼不同!!\n請重新檢查輸入&quot;;
+} else if ($name_result-&gt;num_rows &gt; 0){
+    $message = &#39;該使用者名稱已經被註冊了&#39;;
+} else if ($email_result-&gt;num_rows &gt; 0){
+    $message = &#39;該電子郵件已經被註冊過了&#39;;
+} else {
+    // 檢查連接
+    $sql = &quot;INSERT INTO users (username, email, password) VALUES (&#39;$usrname&#39;, &#39;$email&#39;, &#39;$password&#39;)&quot;;
+    if ($conn-&gt;query($sql) === TRUE) {
+        // 動態切換資料庫
+        if ($conn-&gt;select_db(&quot;user_data&quot;)) {
+            $createTableQuery = &quot;CREATE TABLE $usrname (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                file_name VARCHAR(255) NOT NULL,
+                file_size INT NOT NULL,
+                upload_date DATETIME DEFAULT NULL,
+                file_type VARCHAR(255) NOT NULL,
+                file_path VARCHAR(255) NOT NULL
+            )&quot;;
+            $directory = &#39;uploads/&#39; . $usrname; // 這裡輸入要創建的資料夾路徑
+            if ($conn-&gt;query($createTableQuery) === TRUE &amp;&amp; mkdir($directory)) {
+                $message = &quot;新記錄建立成功&quot;;
+                $color = &quot;#42ff33&quot;;
+                $new_page = &quot;https://localhost/login.php&quot;;
+            } else {
+                $message = &quot;創建資料庫失敗: &quot; . $conn-&gt;error;
+            }
+        } else {
+            die(&quot;連接失敗: &quot; . $conn-&gt;connect_error);
+        }
+    } else {
+        $message = &quot;錯誤: &quot; . $sql . &quot;&lt;br&gt;&quot; . $conn-&gt;error;
+    }
+    // 關閉連接
+    $conn-&gt;close();
+}
+// 使用 header() 函數進行重定向
+header(&quot;Refresh: 3; URL=$new_page&quot;); // 5秒後自動重定向到登入頁
+
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh_TW&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;style&gt;
+        #message {
+            display: none; /* 預設隱藏 */
+            background-color: &lt;?php echo htmlspecialchars($color); ?&gt;; /* 背景 */
+            color: white; /* 白色文字 */
+            padding: 15px; /* 內邊距 */
+            position: fixed; /* 固定位置 */
+            top: 20px; /* 距上方20px */
+            left: 50%; /* 水平置中 */
+            transform: translate(-50%, -50%); /* 調整位置使其正好居中 */
+            z-index: 1000; /* 確保在最上層 */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;message&quot;&gt;&lt;?php echo $message; ?&gt;&lt;/div&gt; &lt;!-- 顯示成功消息 --&gt;
+
+&lt;script&gt;
+    // 獲取消息元素
+    var messageDiv = document.getElementById(&#39;message&#39;);
+    // 顯示消息
+    messageDiv.style.display = &#39;block&#39;;
+    // 設定幾秒後隱藏
+    setTimeout(function() {
+        messageDiv.style.display = &#39;none&#39;;
+    }, 5000); // 5000毫秒 = 5秒
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;?php
+
+// 終止腳本的執行
+exit();
+</pre></div>
+</div>
+<p>}
+?&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="login-interface">
+<h2>login interface<a class="headerlink" href="#login-interface" title="Link to this heading">#</a></h2>
+<p><img alt="login" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-28%20155706.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <title>登入帳號</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    form {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type=&quot;text&quot;], input[type=&quot;password&quot;] {
+        width: 300px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type=&quot;submit&quot;] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type=&quot;submit&quot;]:hover {
+        background-color: #45a049;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+&lt;/style&gt;
+</pre></div>
+</div>
+</head>
+<body>
+    <form action="login_process.php" method="POST">
+    <h2>登入帳號</h2>
+        <label for="usr_name">使用者名稱:</label>
+        <input type="text" id="usr_name" name="usr_name" required><br>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    &lt;label for=&quot;password&quot;&gt;密碼:&lt;/label&gt;
+    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;&lt;br&gt;
+
+    &lt;input type=&quot;submit&quot; value=&quot;登入&quot;&gt;
+&lt;/form&gt;
+</pre></div>
+</div>
+</body>
+</html>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="login-data-interface">
+<h2>login data interface<a class="headerlink" href="#login-data-interface" title="Link to this heading">#</a></h2>
+<p><img alt="login process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010400.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<?php
+$servername = "localhost";
+$username = "root"; // MySQL 用戶名
+$password = ""; // MySQL 密碼
+$dbname = "user_registration";
+<p>// 建立連接
+<span class="math notranslate nohighlight">\(conn = new mysqli(\)</span>servername, <span class="math notranslate nohighlight">\(username, \)</span>password, $dbname);</p>
+<p>// 檢查連接
+if (<span class="math notranslate nohighlight">\(conn-&gt;connect_error) {
+    die(&quot;連接失敗: &quot; . \)</span>conn-&gt;connect_error);
+}</p>
+<p>// 開啟 session
+session_start();</p>
+<p>// 檢查POST資料
+if (<span class="math notranslate nohighlight">\(_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+    \)</span>usr_name = <span class="math notranslate nohighlight">\(_POST['usr_name'];
+    \)</span>password = $_POST[‘password’];</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// 查詢資料庫中的使用者
+$sql = &quot;SELECT * FROM users WHERE username=&#39;$usr_name&#39;&quot;;
+$result = $conn-&gt;query($sql);
+$new_page = &quot;https://localhost/login.php&quot;;
+$color = &quot;#FF3333&quot;;
+
+if ($result-&gt;num_rows &gt; 0) {
+    // 取得使用者的資料
+    $row = $result-&gt;fetch_assoc();
+
+    // 驗證密碼是否正確
+    if ($password == $row[&#39;password&#39;]) {
+        // 登入成功，重定向到歡迎頁面
+        $message = &quot;登入成功！歡迎, &quot; . $usr_name;
+        $new_page = &quot;https://localhost/home.php&quot;;
+        $color = &quot;#42ff33&quot;;
+        
+        $_SESSION[&#39;username&#39;] = $usr_name;
+        $_SESSION[&#39;selected_file_path&#39;] = NULL;
+        $_SESSION[&#39;fileSelect&#39;] = NULL;
+
+    } else {
+        $message = &quot;密碼錯誤！&quot;;
+    }
+} else {
+    $message = &quot;找不到該使用者！&quot;;
+}
+// 使用 header() 函數進行重定向
+header(&quot;Refresh: 3; URL=$new_page&quot;); // 3秒後自動重定向到登入頁
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh_TW&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;style&gt;
+        #message {
+            display: none; /* 預設隱藏 */
+            background-color: &lt;?php echo htmlspecialchars($color); ?&gt;; /* 背景 */
+            color: white; /* 白色文字 */
+            padding: 15px; /* 內邊距 */
+            position: fixed; /* 固定位置 */
+            top: 20px; /* 距上方20px */
+            left: 50%;
+            transform: translate(-50%, -50%); /* 調整位置使其正好居中 */
+            z-index: 1000; /* 確保在最上層 */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;message&quot;&gt;&lt;?php echo $message; ?&gt;&lt;/div&gt;
+&lt;script&gt;
+    // 獲取消息元素
+    var messageDiv = document.getElementById(&#39;message&#39;);
+    // 顯示消息
+    messageDiv.style.display = &#39;block&#39;;
+    // 設定幾秒後隱藏
+    setTimeout(function() {
+        messageDiv.style.display = &#39;none&#39;;
+    }, 5000); // 5000毫秒 = 5秒
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;?php          
+// 終止腳本的執行
+exit();
+</pre></div>
+</div>
+<p>}</p>
+<p>$conn-&gt;close();
+?&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="home">
+<h2>Home<a class="headerlink" href="#home" title="Link to this heading">#</a></h2>
+<p><img alt="home" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120449.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時車輛偵測違規系統</title>
+    <style>
+        /* 整體佈局 */
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    /* 左邊的側邊欄樣式 */
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        padding: 20px 15px; /* 調整內邊距 */
+        position: fixed;
+        overflow: auto; /* 如果內容太多，可滾動 */
+    }
+
+    .sidebar h2, .sidebar a {
+        margin-left: 10px; /* 增加左側邊距，避免貼邊 */
+    }
+
+    .sidebar a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+    }
+
+    .sidebar a:hover {
+        background-color: #575757;
+    }
+
+    /* Logout連結固定在底部 */
+    .logout {
+        position: absolute;
+        bottom: 70px; /* 與底部的距離 */
+    }
+
+    /* 右邊內容區域，包含圖片 */
+    .content {
+        margin-left: 270px; /* 增加側邊欄寬度 */
+        padding: 20px;
+        flex-grow: 1;
+
+        /* 增加與底部的距離 */
+        padding-bottom: 70px; /* 與底部的距離，根據需求調整 */
+
+        /* 將內容居中 */
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        height: 100vh; /* 讓內容區域高度充滿頁面，便於垂直居中 */
+        flex-direction: column; /* 垂直排列 */
+        box-sizing: border-box;
+    }
+
+    /* 圖片容器，用於垂直排列圖片 */
+    .img-container {
+        display: flex;
+        flex-direction: column; /* 垂直排列 */
+        align-items: center; /* 水平居中 */
+        margin-top: 20px; /* 與上方元素的間隙 */
+    }
+
+    .img-container img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px; /* 每張圖片之間的距離 */
+        border: 5px solid #ddd;
+    }
+&lt;/style&gt;
+</pre></div>
+</div>
+</head>
+<body>
+<!-- 側邊欄區域 -->
+<div class="sidebar">
+    <h2>RT-DTV</h2>
+    <a href="home.php">Home</a>
+    <a href="upload.php">Upload</a>
+    <a href=run.php">Run</a>
+    <a href="register.php" class = "logout">Logout</a>
+</div>
+<!-- 內容區域 -->
+<div class="content">
+    <h1>Real-Time Detection of Traffic Violation</h1>
+    <div class="img-container">
+        <img src="pictures/system.png" alt="system">
+        <img src="pictures/tutorial.png" alt="tutorial">
+    </div>
+</div>
+</body>
+</html>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="upload">
+<h2>upload<a class="headerlink" href="#upload" title="Link to this heading">#</a></h2>
+<p><img alt="upload" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120456.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時車輛偵測違規系統</title>
+    <style>
+        /* 整體佈局 */
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    /* 左邊的側邊欄樣式 */
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        padding: 20px 15px; /* 調整內邊距 */
+        position: fixed;
+        overflow: auto; /* 如果內容太多，可滾動 */
+    }
+
+    .sidebar h2, .sidebar a {
+        margin-left: 10px; /* 增加左側邊距，避免貼邊 */
+    }
+
+    .sidebar a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+    }
+
+    .sidebar a:hover {
+        background-color: #575757;
+    }
+
+    /* Logout連結固定在底部 */
+    .logout {
+        position: absolute;
+        bottom: 70px; /* 與底部的距離 */
+    }
+
+    /* 右邊內容區域，包含圖片 */
+    .content {
+        margin-left: 270px; /* 增加側邊欄寬度 */
+        padding: 20px;
+        flex-grow: 1;
+
+        /* 增加與底部的距離 */
+        padding-bottom: 70px; /* 與底部的距離，根據需求調整 */
+
+        /* 將內容居中 */
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        height: 100vh; /* 讓內容區域高度充滿頁面，便於垂直居中 */
+        flex-direction: column; /* 垂直排列 */
+        box-sizing: border-box;
+    }
+
+    input[type=&quot;file&quot;] {
+        width: 350px; /*調整輸入框的寬度*/
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type=&quot;submit&quot;] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type=&quot;submit&quot;]:hover {
+        background-color: #45a049;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* 容器，用於垂直排列 */
+    .upload-container {
+        display: flex;
+        font-size: 30px;
+        align-items: left; /* 水平居中 */
+        flex-direction: column; /* 垂直排列 */
+        margin-top: 50px; /* 與上方元素的間隙 */
+    }
+
+&lt;/style&gt;
+</pre></div>
+</div>
+</head>
+<body>
+<!-- 側邊欄區域 -->
+<div class="sidebar">
+    <h2>RT-DTV</h2>
+    <a href="home.php">Home</a>
+    <a href="upload.php">Upload</a>
+    <a href="run.php">Run</a>
+    <a href="register.php" class="logout">Logout</a>
+</div>
+<!-- 內容區域 -->
+<div class="content">
+    <h1>Real-Time Detection of Traffic Violation</h1>
+    <div class = upload-container>
+    <form method="post" enctype="multipart/form-data" action="upload_process.php">
+        <!-- 限制上傳檔案的最大值 -->
+        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="2097152"> -->
+        <input type="file" name="my_file[]" accept = "video/mp4" multiple>
+        <br><br>
+        <input type="submit" value="Upload">
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="upload-process">
+<h2>upload process<a class="headerlink" href="#upload-process" title="Link to this heading">#</a></h2>
+<p><img alt="file store" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20150336.png" /></p>
+<ul class="simple">
+<li><p>須有一個叫”uploads”資料夾 -&gt; 存影片處(mysql存到那的路徑)</p></li>
+<li><p>還要一個(或不用)暫存檔案的資料夾(這裡是uploads/tmp)</p></li>
+</ul>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<?php
+<p><span class="math notranslate nohighlight">\(servername = &quot;localhost&quot;;
+\)</span>username = “root”; // MySQL 用戶名
+<span class="math notranslate nohighlight">\(password = &quot;&quot;; // MySQL 密碼
+\)</span>dbname = “user_data”;</p>
+<p>// 建立連接
+<span class="math notranslate nohighlight">\(conn = new mysqli(\)</span>servername, <span class="math notranslate nohighlight">\(username, \)</span>password, $dbname);</p>
+<p>// 檢查連接
+if (<span class="math notranslate nohighlight">\(conn-&gt;connect_error) {
+    die(&quot;連接失敗: &quot; . \)</span>conn-&gt;connect_error);
+}</p>
+<p>// 開啟 session
+session_start();
+// 設定時區，以獲取正確的當地時間
+date_default_timezone_set(‘Asia/Taipei’);</p>
+<p>// 檢查接收到POST請求
+if (<span class="math notranslate nohighlight">\(_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+    // 取得表單輸入的值
+    \)</span>files = <span class="math notranslate nohighlight">\(_FILES['my_file'];
+    \)</span>uploadedFiles = [];
+<span class="math notranslate nohighlight">\(usrname = \)</span>_SESSION[‘username’];</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>foreach ($files[&#39;name&#39;] as $index =&gt; $fileName) {
+    $fileTmpName = $files[&#39;tmp_name&#39;][$index];
+    $fileSize = $files[&#39;size&#39;][$index];
+    $upload_date = date(&#39;Y-m-d H:i:s&#39;);
+    $fileType = strtolower($files[&#39;type&#39;][$index]);
+    
+    // 確認檔案是否已存在於資料庫
+    $query = &quot;SELECT * FROM $usrname WHERE file_name = ?&quot;;
+    $stmt = $conn-&gt;prepare($query);
+    $stmt-&gt;bind_param(&quot;s&quot;, $fileName);
+    $stmt-&gt;execute();
+    $result = $stmt-&gt;get_result();
+    if ($result-&gt;num_rows &gt; 0) {
+        // 如果檔案重複，提示用戶選擇是否替換
+        $self_tmp_store = &#39;uploads/tmp/&#39; . basename($fileName);
+        move_uploaded_file($fileTmpName, $self_tmp_store);
+</pre></div>
+</div>
+<p>?&gt;
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<form id="replaceForm" method="POST" action="replace.php">
+<input type="hidden" name="fileName" id="fileNameInput">
+&lt;input type=”hidden” name=”tmp_name” id=”file_tmp_Input” value=<?php echo $self_tmp_store;?>&gt;
+&lt;input type=”hidden” name=”fileSize” id=”fileSizeInput” value=<?php echo $fileSize; ?>&gt;
+&lt;input type=”hidden” name=”fileType” id=”fileTypeInput” value=<?php echo $fileType; ?>&gt;
+</form>
+</body>
+</html></p>
+<?php   
+            echo "<script>
+                document.getElementById('fileNameInput').value = '" . addslashes($fileName) . "';
+                if (confirm('檔案 \"" . addslashes($fileName) . "\" 已存在，是否要取代?')) {
+                    document.getElementById('replaceForm').submit();
+                }else{
+                    alert('檔案未被取代。');
+                    // Optionally redirect or handle the case where the user cancels
+                    window.location.href = 'upload.php'; // Redirect back to upload page
+                }
+            </script>";
+        } else {
+            // 如果檔案不重複，則進行上傳
+            $uploadPath = 'uploads/' . $usrname . '/' . basename($fileName);
+            if (move_uploaded_file($fileTmpName, $uploadPath)) {
+                // 將檔案資訊寫入資料庫
+                $insertQuery = "INSERT INTO $usrname (file_name, file_size, upload_date, file_type, file_path) VALUES (?, ?, ?, ?, ?)";
+                $insertStmt = $conn->prepare($insertQuery);
+                $insertStmt->bind_param("sisss", $fileName, $fileSize, $upload_date, $fileType, $uploadPath);
+                $insertStmt->execute();
+                
+                $message = "上傳完成!";
+                $color = "#42ff33";
+                $uploadedFiles[] = $fileName;
+            }else{
+                $message = "上傳失敗\n請重新上傳";
+                $color = "#FF3333";
+            }
+        }
+    }
+    
+    $conn->close();
+    
+    $new_page = 'https://localhost/upload.php';
+
+    // 使用 header() 函數進行重定向
+    header("Refresh: 3; URL=$new_page"); // 5秒後自動重定向到登入頁
+    
+    ?>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh_TW&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;style&gt;
+        #message {
+            display: none; /* 預設隱藏 */
+            background-color: &lt;?php echo htmlspecialchars($color);?&gt;; /* 背景 */
+            color: white; /* 白色文字 */
+            padding: 15px; /* 內邊距 */
+            position: fixed; /* 固定位置 */
+            top: 20px; /* 距上方20px */
+            left: 50%; /* 水平置中 */
+            transform: translate(-50%, -50%); /* 調整位置使其正好居中 */
+            z-index: 1000; /* 確保在最上層 */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;message&quot;&gt;&lt;?php echo $message; ?&gt;&lt;/div&gt; &lt;!-- 顯示成功消息 --&gt;
+
+&lt;script&gt;
+    // 獲取消息元素
+    var messageDiv = document.getElementById(&#39;message&#39;);
+    // 顯示消息
+    messageDiv.style.display = &#39;block&#39;;
+    // 設定幾秒後隱藏
+    setTimeout(function() {
+        messageDiv.style.display = &#39;none&#39;;
+    }, 5000); // 5000毫秒 = 5秒
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;?php
+
+// 終止腳本的執行
+exit();
+</pre></div>
+</div>
+<p>}
+?&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="replace">
+<h2>replace<a class="headerlink" href="#replace" title="Link to this heading">#</a></h2>
+<p><img alt="replace" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20222137.png" /></p>
+<ul class="simple">
+<li><p>取代重複檔名之檔案</p></li>
+</ul>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<?php
+// 連接 MySQL 資料庫
+$servername = "localhost";
+$username = "root"; // MySQL 用戶名
+$password = ""; // MySQL 密碼
+$dbname = "user_data";
+<p>// 建立連接
+<span class="math notranslate nohighlight">\(conn = new mysqli(\)</span>servername, <span class="math notranslate nohighlight">\(username, \)</span>password, $dbname);</p>
+<p>if (<span class="math notranslate nohighlight">\(conn-&gt;connect_error) {
+    die(&quot;資料庫連接失敗: &quot; . \)</span>conn-&gt;connect_error);
+}</p>
+<p>// 開啟 session
+session_start();
+// 設定時區，以獲取正確的當地時間
+date_default_timezone_set(‘Asia/Taipei’);</p>
+<p>if (<span class="math notranslate nohighlight">\(_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;){
+    \)</span>fileName = <span class="math notranslate nohighlight">\(_POST['fileName']; // 接收檔案名稱
+    \)</span>usrname = <span class="math notranslate nohighlight">\(_SESSION['username'];
+    \)</span>uploadPath = ‘uploads/’ . <span class="math notranslate nohighlight">\(usrname . '/' . basename(\)</span>fileName);</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (file_exists($uploadPath)){
+    unlink($uploadPath);
+}
+$fileTmpName = $_POST[&#39;tmp_name&#39;]; // 檔案臨時路徑
+$fixfileTmpName = addslashes($fileTmpName);
+$fileSize = $_POST[&#39;fileSize&#39;]; // 檔案大小
+$upload_date = date(&#39;Y-m-d H:i:s&#39;);
+$fileType = $_POST[&#39;fileType&#39;]; // 檔案類型
+
+if (!file_exists($fileTmpName)) {
+    die(&quot;臨時檔案不存在: &quot; . $fileTmpName);
+}
+if (empty($uploadPath)) {
+    die(&quot;上傳路徑未正確設定.&quot;);
+}
+
+if (rename($fileTmpName, $uploadPath)) {
+    // Update the database record
+    $updateQuery = &quot;UPDATE $usrname SET file_type = ?, file_size = ?, upload_date = ? , file_path = ? WHERE file_name = ?&quot;;
+    $updateStmt = $conn-&gt;prepare($updateQuery);
+    $updateStmt-&gt;bind_param(&quot;sisss&quot;,  $fileType, $fileSize, $upload_date, $uploadPath, $fileName);
+
+    if ($updateStmt-&gt;execute()) {
+        $message = &quot;檔案更新成功!&quot;;
+    } else {
+        $message = &quot;檔案更新失敗: &quot; . $updateStmt-&gt;error;
+    }
+
+    $updateStmt-&gt;close();
+} else {
+    $message = &quot;檔案 &quot; . $fileName . &quot; 更新失敗!&quot;;
+}
+// Move the uploaded file and replace the old one
+
+$conn-&gt;close();
+$new_page = &#39;https://localhost/upload.php&#39;;
+header(&quot;Refresh: 3; URL=$new_page&quot;); // 2秒後自動重定向到上傳頁面
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh_TW&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;style&gt;
+        #message {
+            display: none; /* 預設隱藏 */
+            background-color: #42ff33; /* 背景 */
+            color: white; /* 白色文字 */
+            padding: 15px; /* 內邊距 */
+            position: fixed; /* 固定位置 */
+            top: 20px; /* 距上方20px */
+            left: 50%; /* 水平置中 */
+            transform: translate(-50%, -50%); /* 調整位置使其正好居中 */
+            z-index: 1000; /* 確保在最上層 */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;message&quot;&gt;&lt;?php echo $message; ?&gt;&lt;/div&gt; &lt;!-- 顯示成功消息 --&gt;
+
+&lt;script&gt;
+    // 獲取消息元素
+    var messageDiv = document.getElementById(&#39;message&#39;);
+    // 顯示消息
+    messageDiv.style.display = &#39;block&#39;;
+    // 設定幾秒後隱藏
+    setTimeout(function() {
+        messageDiv.style.display = &#39;none&#39;;
+    }, 5000); // 5000毫秒 = 5秒
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;?php
+
+// 終止腳本的執行
+exit();
+</pre></div>
+</div>
+<p>}
+?&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="run">
+<h2>run<a class="headerlink" href="#run" title="Link to this heading">#</a></h2>
+<p><img alt="run" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120524.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時車輛偵測違規系統</title>
+    <style>
+        /* 整體佈局 */
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    /* 左邊的側邊欄樣式 */
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        padding: 20px 15px; /* 調整內邊距 */
+        position: fixed;
+        overflow: auto; /* 如果內容太多，可滾動 */
+    }
+
+    .sidebar h2, .sidebar a {
+        margin-left: 10px; /* 增加左側邊距，避免貼邊 */
+    }
+
+    .sidebar a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+    }
+
+    .sidebar a:hover {
+        background-color: #575757;
+    }
+
+    /* Logout連結固定在底部 */
+    .logout {
+        position: absolute;
+        bottom: 70px; /* 與底部的距離 */
+    }
+
+    /* 右邊內容區域，包含圖片 */
+    .content {
+        margin-left: 270px; /* 增加側邊欄寬度 */
+        padding: 20px;
+        flex-grow: 1;
+        
+        /* 增加與底部的距離 */
+        padding-bottom: 70px; /* 與底部的距離，根據需求調整 */
+
+        /* 將內容居中 */
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        height: 100vh; /* 讓內容區域高度充滿頁面，便於垂直居中 */
+        flex-direction: column; /* 垂直排列 */
+        box-sizing: border-box;
+    }
+
+    select {
+        width: 350px; /* 調整寬度 */
+        height: 35px; /* 調整高度 */
+        font-size: 15px; /* 調整文字大小 */
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type=&quot;submit&quot;] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type=&quot;submit&quot;]:hover {
+        background-color: #45a049;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* 容器，用於垂直排列 */
+    .run-container {
+        display: flex;
+        font-size: 30px;
+        align-items: left; /* 水平居中 */
+        flex-direction: column; /* 垂直排列 */
+        margin-top: 50px; /* 與上方元素的間隙 */
+    }
+
+    .func_button {
+        margin-bottom: 70px; /* 調整影片與下方表單的距離 */
+    }
+
+&lt;/style&gt;
+</pre></div>
+</div>
+</head>
+<body>
+<!-- 側邊欄區域 -->
+<div class="sidebar">
+    <h2>RT-DTV</h2>
+    <a href="home.php">Home</a>
+    <a href="upload.php">Upload</a>
+    <a href="run.php">Run</a>
+    <a href="register.php" class="logout">Logout</a>
+</div>
+<!-- 內容區域 -->
+<?php $show = False; ?>
+<div class="content">
+    <h1>Real-Time Detection of Traffic Violation</h1>
+    <div class = run-container>
+        <form action="run_process.php" method="post">
+            <select name="fileSelect" id="fileSelect">
+                <?php
+                session_start();
+                $servername = "localhost";
+                $username = "root"; // MySQL 用戶名
+                $password = ""; // MySQL 密碼
+                $dbname = "user_data";
+                $conn = new mysqli($servername, $username, $password, $dbname);
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>            $usrname = $_SESSION[&#39;username&#39;];
+
+            // 檢查連接
+            if ($conn-&gt;connect_error) {
+                die(&quot;連接失敗: &quot; . $conn-&gt;connect_error);
+            }
+            
+            $sql_name = &quot;SELECT * FROM $usrname&quot;;
+            $result = $conn-&gt;query($sql_name);
+
+            if ($result-&gt;num_rows &gt; 0) {
+                while ($row = $result-&gt;fetch_assoc()) {
+                    echo &quot;&lt;option value=&#39;&quot; . htmlspecialchars($row[&quot;file_path&quot;]) . &quot;&#39;&gt;&quot; . htmlspecialchars($row[&quot;file_name&quot;]) . &quot;&lt;/option&gt;&quot;;
+                }
+            } else {
+                echo &quot;&lt;option value=&#39;&#39;&gt;沒有可用的檔案&lt;/option&gt;&quot;;
+            }
+            ?&gt;
+        &lt;/select&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Choose&quot;&gt;
+    &lt;/form&gt;
+
+    &lt;!-- 顯示處理後的檔案 --&gt;
+    &lt;?php
+   
+    if (isset($_SESSION[&#39;selected_file_path&#39;])) {
+        $show = True;
+        $file_path = $_SESSION[&#39;selected_file_path&#39;];
+        echo &quot;&lt;h4&gt;選擇的檔案：&lt;/h4&gt;&quot;;
+        echo &quot;&lt;video width=&#39;600&#39; controls&gt;
+                &lt;source src=&#39;&quot; . htmlspecialchars($file_path) . &quot;&#39; type=&#39;video/mp4&#39;&gt;
+              您的瀏覽器不支援影片播放。
+              &lt;/video&gt;&quot;;
+    
+    ?&gt;
+    &lt;br&gt;
+    &lt;div class = func_button&gt;
+        &lt;form action=&quot;run_program.php&quot; method=&quot;post&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Run&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;程式影片生成&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Result&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Download&quot;&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+&lt;?php
+    }
+?&gt;
+
+&lt;/div&gt;
+</pre></div>
+</div>
+</div>
+</body>
+</html>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="run-process">
+<h2>run process<a class="headerlink" href="#run-process" title="Link to this heading">#</a></h2>
+<p><img alt="run process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120503.png" /></p>
+<details>
+    <summary>show code cell source</summary>
+```php=
+<?php
+session_start();
+<p>if (<span class="math notranslate nohighlight">\(_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+    if (!empty(\)</span>_POST[“fileSelect”])) {
+// 將選擇的檔案路徑存到 session
+<span class="math notranslate nohighlight">\(_SESSION['selected_file_path'] = \)</span>_POST[“fileSelect”];
+}
+}</p>
+<p>// 回到 run.php 頁面
+header(“Location: run.php”);
+exit();
+?&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="run-program">
+<h2>run_program<a class="headerlink" href="#run-program" title="Link to this heading">#</a></h2>
+<p><span style="background-color: skyblue;"><strong>To Be Continue</strong></span></p>
+<aside class="topic">
+<p class="topic-title">info</p>
+<p>To see full code, please see <a class="reference external" href="https://github.com/HutakiHare/mybook/tree/fed84c36b0a4dd3d1c014d8c33102c182c819b5f/mybook/htdocs">my GitHub</a></p>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="summer_internship_feedback.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Summer internship review</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">起始應有兩個資料庫</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerview">prerview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-interface">register interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data-file">save data file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login-interface">login interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login-data-interface">login data interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home">Home</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upload">upload</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-process">upload process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace">replace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run">run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-process">run process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-program">run_program</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By HutakiHare
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
