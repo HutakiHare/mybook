@@ -483,13 +483,15 @@ password VARCHAR(255) NOT NULL<br />
 <h2>register interface<a class="headerlink" href="#register-interface" title="Link to this heading">#</a></h2>
 <p><img alt="register" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-28%20155649.png" /></p>
 <details>
-    <summary>show code cell source</summary>
-<div class="highlight-php= notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;zh_TW&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;違規偵測系統&lt;/title&gt;
-    &lt;style&gt;
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
+```php=
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <title>違規偵測系統</title>
+    <style>
         body {
             display: flex;
             justify-content: center;
@@ -499,87 +501,91 @@ password VARCHAR(255) NOT NULL<br />
             font-family: Arial, sans-serif;
             text-align: center;
         }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    form {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        form {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    input[type=&quot;text&quot;], input[type=&quot;email&quot;], input[type=&quot;password&quot;] {
+        width: 500px; /*調整輸入框的寬度*/
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
 
-        input[type=&quot;text&quot;], input[type=&quot;email&quot;], input[type=&quot;password&quot;] {
-            width: 500px; /*調整輸入框的寬度*/
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
+    input[type=&quot;submit&quot;] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        input[type=&quot;submit&quot;] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    input[type=&quot;submit&quot;]:hover {
+        background-color: #45a049;
+    }
 
-        input[type=&quot;submit&quot;]:hover {
-            background-color: #45a049;
-        }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+    .login_btn {
+        display: inline-block;
+        align-items: center;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #008CBA;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
 
-        .login_btn {
-            display: inline-block;
-            align-items: center;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #008CBA;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .login_btn:hover {
-            background-color: #007bb5;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;form action=&quot;save_data.php&quot; method=&quot;POST&quot;&gt;
-        &lt;h2&gt;註冊帳號&lt;/h2&gt;
-        &lt;label for=&quot;usr_name&quot;&gt;使用者名稱:&lt;/label&gt;
-        &lt;input type=&quot;text&quot; id=&quot;usr_name&quot; name=&quot;usr_name&quot; required&gt;&lt;br&gt;
-        
-        &lt;label for=&quot;email_name&quot;&gt;電子郵件帳號:&lt;/label&gt;
-        &lt;input type=&quot;email&quot; id=&quot;email_name&quot; name=&quot;email_name&quot; required&gt;&lt;br&gt;
-        
-        &lt;label for=&quot;password&quot;&gt;密碼:&lt;/label&gt;
-        &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;&lt;br&gt;
-        
-        &lt;label for=&quot;double_check_pssword&quot;&gt;再次確認密碼:&lt;/label&gt;
-        &lt;input type=&quot;password&quot; id=&quot;double_check_psswd&quot; name=&quot;double_check_psswd&quot; required&gt;&lt;br&gt;
-        
-        &lt;input type=&quot;submit&quot; value=&quot;註冊帳號&quot;&gt;
-        &lt;a href=&quot;login.php&quot; class=&quot;login-btn&quot;&gt;已經有帳號？登入&lt;/a&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-
+    .login_btn:hover {
+        background-color: #007bb5;
+    }
+&lt;/style&gt;
 </pre></div>
 </div>
-</details></section>
+</head>
+<body>
+    <form action="save_data.php" method="POST">
+        <h2>註冊帳號</h2>
+        <label for="usr_name">使用者名稱:</label>
+        <input type="text" id="usr_name" name="usr_name" required><br>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    &lt;label for=&quot;email_name&quot;&gt;電子郵件帳號:&lt;/label&gt;
+    &lt;input type=&quot;email&quot; id=&quot;email_name&quot; name=&quot;email_name&quot; required&gt;&lt;br&gt;
+    
+    &lt;label for=&quot;password&quot;&gt;密碼:&lt;/label&gt;
+    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;&lt;br&gt;
+    
+    &lt;label for=&quot;double_check_pssword&quot;&gt;再次確認密碼:&lt;/label&gt;
+    &lt;input type=&quot;password&quot; id=&quot;double_check_psswd&quot; name=&quot;double_check_psswd&quot; required&gt;&lt;br&gt;
+    
+    &lt;input type=&quot;submit&quot; value=&quot;註冊帳號&quot;&gt;
+    &lt;a href=&quot;login.php&quot; class=&quot;login-btn&quot;&gt;已經有帳號？登入&lt;/a&gt;
+&lt;/form&gt;
+</pre></div>
+</div>
+</body>
+</html>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
 <section id="save-data-file">
 <h2>save data file<a class="headerlink" href="#save-data-file" title="Link to this heading">#</a></h2>
 <p><img alt="process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010343.png" /></p>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <?php
 <p><span class="math notranslate nohighlight">\(servername = &quot;localhost&quot;;
@@ -694,7 +700,8 @@ exit();
 </div>
 <p>}
 ?&gt;</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -702,7 +709,8 @@ exit();
 <h2>login interface<a class="headerlink" href="#login-interface" title="Link to this heading">#</a></h2>
 <p><img alt="login" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-28%20155706.png" /></p>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <!DOCTYPE html>
 <html lang="zh_TW">
@@ -771,7 +779,8 @@ exit();
 </div>
 </body>
 </html>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -779,7 +788,8 @@ exit();
 <h2>login data interface<a class="headerlink" href="#login-data-interface" title="Link to this heading">#</a></h2>
 <p><img alt="login process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010400.png" /></p>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <?php
 $servername = "localhost";
@@ -870,7 +880,8 @@ exit();
 <p>}</p>
 <p>$conn-&gt;close();
 ?&gt;</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -879,6 +890,7 @@ exit();
 <p><img alt="home" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120449.png" /></p>
 <details>
     <summary>show code cell source</summary>
+<pre><code>
 ```php=
 <!DOCTYPE html>
 <html lang="zh_TW">
@@ -980,7 +992,8 @@ exit();
 </div>
 </body>
 </html>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -988,7 +1001,8 @@ exit();
 <h2>upload<a class="headerlink" href="#upload" title="Link to this heading">#</a></h2>
 <p><img alt="upload" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120456.png" /></p>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <!DOCTYPE html>
 <html lang="zh_TW">
@@ -1117,7 +1131,8 @@ exit();
 </div>
 </body>
 </html>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -1129,7 +1144,8 @@ exit();
 <li><p>還要一個(或不用)暫存檔案的資料夾(這裡是uploads/tmp)</p></li>
 </ul>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <?php
 <p><span class="math notranslate nohighlight">\(servername = &quot;localhost&quot;;
@@ -1267,7 +1283,8 @@ exit();
 </div>
 <p>}
 ?&gt;</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -1278,7 +1295,8 @@ exit();
 <li><p>取代重複檔名之檔案</p></li>
 </ul>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <?php
 // 連接 MySQL 資料庫
@@ -1380,7 +1398,8 @@ exit();
 </div>
 <p>}
 ?&gt;</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -1388,7 +1407,8 @@ exit();
 <h2>run<a class="headerlink" href="#run" title="Link to this heading">#</a></h2>
 <p><img alt="run" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120524.png" /></p>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <!DOCTYPE html>
 <html lang="zh_TW">
@@ -1577,7 +1597,8 @@ exit();
 </div>
 </body>
 </html>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -1585,7 +1606,8 @@ exit();
 <h2>run process<a class="headerlink" href="#run-process" title="Link to this heading">#</a></h2>
 <p><img alt="run process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120503.png" /></p>
 <details>
-    <summary>show code cell source</summary>
+    <summary style="text-align: left;">show code cell source</summary>
+<pre><code>
 ```php=
 <?php
 session_start();
@@ -1599,7 +1621,8 @@ session_start();
 header(“Location: run.php”);
 exit();
 ?&gt;</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>

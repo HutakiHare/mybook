@@ -15,4 +15,4 @@ parts:
   - file: summer_internship_feedback
 - caption: "After intern: Junior Year in CCU"
   chapters:
-  - file: htdocs/register
+  - file: php_ui_of_indicator_lights_project
