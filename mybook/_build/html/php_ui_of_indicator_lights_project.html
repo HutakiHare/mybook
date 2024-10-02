@@ -486,65 +486,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
 <span class="x">    &lt;title&gt;違規偵測系統&lt;/title&gt;</span>
 <span class="x">    &lt;style&gt;</span>
-<span class="x">        body {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            justify-content: center;</span>
-<span class="x">            align-items: center;</span>
-<span class="x">            height: 100vh;</span>
-<span class="x">            margin: 0;</span>
-<span class="x">            font-family: Arial, sans-serif;</span>
-<span class="x">            text-align: center;</span>
-<span class="x">        }</span>
 
-<span class="x">        form {</span>
-<span class="x">            border: 1px solid #ccc;</span>
-<span class="x">            padding: 20px;</span>
-<span class="x">            border-radius: 10px;</span>
-<span class="x">            background-color: #f9f9f9;</span>
-<span class="x">            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;text&quot;], input[type=&quot;email&quot;], input[type=&quot;password&quot;] {</span>
-<span class="x">            width: 500px; /*調整輸入框的寬度*/</span>
-<span class="x">            padding: 10px;</span>
-<span class="x">            margin: 10px 0;</span>
-<span class="x">            border: 1px solid #ccc;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;] {</span>
-<span class="x">            background-color: #4CAF50;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 10px 20px;</span>
-<span class="x">            border: none;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            cursor: pointer;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;]:hover {</span>
-<span class="x">            background-color: #45a049;</span>
-<span class="x">        }</span>
-
-<span class="x">        label {</span>
-<span class="x">            display: block;</span>
-<span class="x">            margin-bottom: 5px;</span>
-<span class="x">        }</span>
-
-<span class="x">        .login_btn {</span>
-<span class="x">            display: inline-block;</span>
-<span class="x">            align-items: center;</span>
-<span class="x">            margin-top: 10px;</span>
-<span class="x">            padding: 10px 20px;</span>
-<span class="x">            background-color: #008CBA;</span>
-<span class="x">            color: white;</span>
-<span class="x">            text-decoration: none;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">        }</span>
-
-<span class="x">        .login_btn:hover {</span>
-<span class="x">            background-color: #007bb5;</span>
-<span class="x">        }</span>
+<span class="x">       /*.. some CSS for better looking ..*/</span>
+<span class="x">    </span>
 <span class="x">    &lt;/style&gt;</span>
 <span class="x">&lt;/head&gt;</span>
 <span class="x">&lt;body&gt;</span>
@@ -575,18 +519,7 @@ password VARCHAR(255) NOT NULL<br />
 <p><img alt="process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010343.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
-<span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
-<span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span> <span class="c1">// MySQL 用戶名</span>
-<span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="c1">// MySQL 密碼</span>
-<span class="nv">$dbname</span> <span class="o">=</span> <span class="s2">&quot;user_registration&quot;</span><span class="p">;</span>
-
-<span class="c1">// 建立連接</span>
-<span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$dbname</span><span class="p">);</span>
-
-<span class="c1">// 檢查連接</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">die</span><span class="p">(</span><span class="s2">&quot;連接失敗: &quot;</span> <span class="o">.</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="cm">/*.. connect to sql with $conn ..*/</span>
 
 <span class="c1">// 檢查接收到POST請求</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_METHOD&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">)</span> <span class="p">{</span>
@@ -653,17 +586,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;head&gt;</span>
 <span class="x">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
 <span class="x">        &lt;style&gt;</span>
-<span class="x">            #message {</span>
-<span class="x">                display: none; /* 預設隱藏 */</span>
-<span class="x">                background-color: </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$color</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">; /* 背景 */</span>
-<span class="x">                color: white; /* 白色文字 */</span>
-<span class="x">                padding: 15px; /* 內邊距 */</span>
-<span class="x">                position: fixed; /* 固定位置 */</span>
-<span class="x">                top: 20px; /* 距上方20px */</span>
-<span class="x">                left: 50%; /* 水平置中 */</span>
-<span class="x">                transform: translate(-50%, -50%); /* 調整位置使其正好居中 */</span>
-<span class="x">                z-index: 1000; /* 確保在最上層 */</span>
-<span class="x">            }</span>
+
+<span class="x">          /.. some CSS for better looking ../</span>
+<span class="x">        </span>
 <span class="x">        &lt;/style&gt;</span>
 <span class="x">    &lt;/head&gt;</span>
 <span class="x">    &lt;body&gt;</span>
@@ -671,14 +596,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;div id=&quot;message&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$message</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/div&gt; &lt;!-- 顯示成功消息 --&gt;</span>
 
 <span class="x">    &lt;script&gt;</span>
-<span class="x">        // 獲取消息元素</span>
-<span class="x">        var messageDiv = document.getElementById(&#39;message&#39;);</span>
-<span class="x">        // 顯示消息</span>
-<span class="x">        messageDiv.style.display = &#39;block&#39;;</span>
-<span class="x">        // 設定幾秒後隱藏</span>
-<span class="x">        setTimeout(function() {</span>
-<span class="x">            messageDiv.style.display = &#39;none&#39;;</span>
-<span class="x">        }, 5000); // 5000毫秒 = 5秒</span>
+
+<span class="x">        /*.. some Js for output msg ..*/</span>
+<span class="x">    </span>
 <span class="x">    &lt;/script&gt;</span>
 
 <span class="x">    &lt;/body&gt;</span>
@@ -701,50 +621,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
 <span class="x">    &lt;title&gt;登入帳號&lt;/title&gt;</span>
 <span class="x">    &lt;style&gt;</span>
-<span class="x">        body {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            justify-content: center;</span>
-<span class="x">            align-items: center;</span>
-<span class="x">            height: 100vh;</span>
-<span class="x">            margin: 0;</span>
-<span class="x">            font-family: Arial, sans-serif;</span>
-<span class="x">            text-align: center;</span>
-<span class="x">        }</span>
 
-<span class="x">        form {</span>
-<span class="x">            border: 1px solid #ccc;</span>
-<span class="x">            padding: 20px;</span>
-<span class="x">            border-radius: 10px;</span>
-<span class="x">            background-color: #f9f9f9;</span>
-<span class="x">            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;text&quot;], input[type=&quot;password&quot;] {</span>
-<span class="x">            width: 300px;</span>
-<span class="x">            padding: 10px;</span>
-<span class="x">            margin: 10px 0;</span>
-<span class="x">            border: 1px solid #ccc;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;] {</span>
-<span class="x">            background-color: #4CAF50;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 10px 20px;</span>
-<span class="x">            border: none;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            cursor: pointer;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;]:hover {</span>
-<span class="x">            background-color: #45a049;</span>
-<span class="x">        }</span>
-
-<span class="x">        label {</span>
-<span class="x">            display: block;</span>
-<span class="x">            margin-bottom: 5px;</span>
-<span class="x">        }</span>
+<span class="x">       /*.. some CSS for better looking ..*/</span>
+<span class="x">    </span>
 <span class="x">    &lt;/style&gt;</span>
 <span class="x">&lt;/head&gt;</span>
 <span class="x">&lt;body&gt;</span>
@@ -767,18 +646,8 @@ password VARCHAR(255) NOT NULL<br />
 <h2>login data interface<a class="headerlink" href="#login-data-interface" title="Link to this heading">#</a></h2>
 <p><img alt="login process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010400.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
-<span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span> <span class="c1">// MySQL 用戶名</span>
-<span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="c1">// MySQL 密碼</span>
-<span class="nv">$dbname</span> <span class="o">=</span> <span class="s2">&quot;user_registration&quot;</span><span class="p">;</span>
 
-<span class="c1">// 建立連接</span>
-<span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$dbname</span><span class="p">);</span>
-
-<span class="c1">// 檢查連接</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">die</span><span class="p">(</span><span class="s2">&quot;連接失敗: &quot;</span> <span class="o">.</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="cm">/*.. connecct to sql with $conn ..*/</span>
 
 <span class="c1">// 開啟 session</span>
 <span class="nb">session_start</span><span class="p">();</span>
@@ -823,31 +692,18 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;head&gt;</span>
 <span class="x">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
 <span class="x">        &lt;style&gt;</span>
-<span class="x">            #message {</span>
-<span class="x">                display: none; /* 預設隱藏 */</span>
-<span class="x">                background-color: </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$color</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">; /* 背景 */</span>
-<span class="x">                color: white; /* 白色文字 */</span>
-<span class="x">                padding: 15px; /* 內邊距 */</span>
-<span class="x">                position: fixed; /* 固定位置 */</span>
-<span class="x">                top: 20px; /* 距上方20px */</span>
-<span class="x">                left: 50%;</span>
-<span class="x">                transform: translate(-50%, -50%); /* 調整位置使其正好居中 */</span>
-<span class="x">                z-index: 1000; /* 確保在最上層 */</span>
-<span class="x">            }</span>
+
+<span class="x">           /.. some CSS for better looking ../</span>
+<span class="x">        </span>
 <span class="x">        &lt;/style&gt;</span>
 <span class="x">    &lt;/head&gt;</span>
 <span class="x">    &lt;body&gt;</span>
 
 <span class="x">    &lt;div id=&quot;message&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$message</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/div&gt;</span>
 <span class="x">    &lt;script&gt;</span>
-<span class="x">        // 獲取消息元素</span>
-<span class="x">        var messageDiv = document.getElementById(&#39;message&#39;);</span>
-<span class="x">        // 顯示消息</span>
-<span class="x">        messageDiv.style.display = &#39;block&#39;;</span>
-<span class="x">        // 設定幾秒後隱藏</span>
-<span class="x">        setTimeout(function() {</span>
-<span class="x">            messageDiv.style.display = &#39;none&#39;;</span>
-<span class="x">        }, 5000); // 5000毫秒 = 5秒</span>
+
+<span class="x">        /*.. some Js for output msg ..*/</span>
+<span class="x">    </span>
 <span class="x">    &lt;/script&gt;</span>
 
 <span class="x">    &lt;/body&gt;</span>
@@ -872,77 +728,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
 <span class="x">    &lt;title&gt;即時車輛偵測違規系統&lt;/title&gt;</span>
 <span class="x">    &lt;style&gt;</span>
+<span class="x">        </span>
 <span class="x">        /* 整體佈局 */</span>
-<span class="x">        body {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            margin: 0;</span>
-<span class="x">            font-family: Arial, sans-serif;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 左邊的側邊欄樣式 */</span>
-<span class="x">        .sidebar {</span>
-<span class="x">            width: 250px;</span>
-<span class="x">            height: 100vh;</span>
-<span class="x">            background-color: #333;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 20px 15px; /* 調整內邊距 */</span>
-<span class="x">            position: fixed;</span>
-<span class="x">            overflow: auto; /* 如果內容太多，可滾動 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar h2, .sidebar a {</span>
-<span class="x">            margin-left: 10px; /* 增加左側邊距，避免貼邊 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar a {</span>
-<span class="x">            padding: 10px;</span>
-<span class="x">            text-decoration: none;</span>
-<span class="x">            font-size: 18px;</span>
-<span class="x">            color: white;</span>
-<span class="x">            display: block;</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar a:hover {</span>
-<span class="x">            background-color: #575757;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* Logout連結固定在底部 */</span>
-<span class="x">        .logout {</span>
-<span class="x">            position: absolute;</span>
-<span class="x">            bottom: 70px; /* 與底部的距離 */</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 右邊內容區域，包含圖片 */</span>
-<span class="x">        .content {</span>
-<span class="x">            margin-left: 270px; /* 增加側邊欄寬度 */</span>
-<span class="x">            padding: 20px;</span>
-<span class="x">            flex-grow: 1;</span>
-
-<span class="x">            /* 增加與底部的距離 */</span>
-<span class="x">            padding-bottom: 70px; /* 與底部的距離，根據需求調整 */</span>
-
-<span class="x">            /* 將內容居中 */</span>
-<span class="x">            display: flex;</span>
-<span class="x">            align-items: center; /* 垂直居中 */</span>
-<span class="x">            height: 100vh; /* 讓內容區域高度充滿頁面，便於垂直居中 */</span>
-<span class="x">            flex-direction: column; /* 垂直排列 */</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 圖片容器，用於垂直排列圖片 */</span>
-<span class="x">        .img-container {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            flex-direction: column; /* 垂直排列 */</span>
-<span class="x">            align-items: center; /* 水平居中 */</span>
-<span class="x">            margin-top: 20px; /* 與上方元素的間隙 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .img-container img {</span>
-<span class="x">            max-width: 100%;</span>
-<span class="x">            height: auto;</span>
-<span class="x">            margin-bottom: 20px; /* 每張圖片之間的距離 */</span>
-<span class="x">            border: 5px solid #ddd;</span>
-<span class="x">        }</span>
+<span class="x">       </span>
 <span class="x">    &lt;/style&gt;</span>
 <span class="x">&lt;/head&gt;</span>
 <span class="x">&lt;body&gt;</span>
@@ -980,98 +768,8 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
 <span class="x">    &lt;title&gt;即時車輛偵測違規系統&lt;/title&gt;</span>
 <span class="x">    &lt;style&gt;</span>
+<span class="x">        </span>
 <span class="x">        /* 整體佈局 */</span>
-<span class="x">        body {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            margin: 0;</span>
-<span class="x">            font-family: Arial, sans-serif;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 左邊的側邊欄樣式 */</span>
-<span class="x">        .sidebar {</span>
-<span class="x">            width: 250px;</span>
-<span class="x">            height: 100vh;</span>
-<span class="x">            background-color: #333;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 20px 15px; /* 調整內邊距 */</span>
-<span class="x">            position: fixed;</span>
-<span class="x">            overflow: auto; /* 如果內容太多，可滾動 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar h2, .sidebar a {</span>
-<span class="x">            margin-left: 10px; /* 增加左側邊距，避免貼邊 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar a {</span>
-<span class="x">            padding: 10px;</span>
-<span class="x">            text-decoration: none;</span>
-<span class="x">            font-size: 18px;</span>
-<span class="x">            color: white;</span>
-<span class="x">            display: block;</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar a:hover {</span>
-<span class="x">            background-color: #575757;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* Logout連結固定在底部 */</span>
-<span class="x">        .logout {</span>
-<span class="x">            position: absolute;</span>
-<span class="x">            bottom: 70px; /* 與底部的距離 */</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 右邊內容區域，包含圖片 */</span>
-<span class="x">        .content {</span>
-<span class="x">            margin-left: 270px; /* 增加側邊欄寬度 */</span>
-<span class="x">            padding: 20px;</span>
-<span class="x">            flex-grow: 1;</span>
-
-<span class="x">            /* 增加與底部的距離 */</span>
-<span class="x">            padding-bottom: 70px; /* 與底部的距離，根據需求調整 */</span>
-
-<span class="x">            /* 將內容居中 */</span>
-<span class="x">            display: flex;</span>
-<span class="x">            align-items: center; /* 垂直居中 */</span>
-<span class="x">            height: 100vh; /* 讓內容區域高度充滿頁面，便於垂直居中 */</span>
-<span class="x">            flex-direction: column; /* 垂直排列 */</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;file&quot;] {</span>
-<span class="x">            width: 350px; /*調整輸入框的寬度*/</span>
-<span class="x">            padding: 10px;</span>
-<span class="x">            margin: 10px 0;</span>
-<span class="x">            border: 1px solid #ccc;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;] {</span>
-<span class="x">            background-color: #4CAF50;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 10px 20px;</span>
-<span class="x">            border: none;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            cursor: pointer;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;]:hover {</span>
-<span class="x">            background-color: #45a049;</span>
-<span class="x">        }</span>
-
-<span class="x">        label {</span>
-<span class="x">            display: block;</span>
-<span class="x">            margin-bottom: 5px;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 容器，用於垂直排列 */</span>
-<span class="x">        .upload-container {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            font-size: 30px;</span>
-<span class="x">            align-items: left; /* 水平居中 */</span>
-<span class="x">            flex-direction: column; /* 垂直排列 */</span>
-<span class="x">            margin-top: 50px; /* 與上方元素的間隙 */</span>
-<span class="x">        }</span>
 
 <span class="x">    &lt;/style&gt;</span>
 <span class="x">&lt;/head&gt;</span>
@@ -1115,18 +813,7 @@ password VARCHAR(255) NOT NULL<br />
 </ul>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
-<span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
-<span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span> <span class="c1">// MySQL 用戶名</span>
-<span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="c1">// MySQL 密碼</span>
-<span class="nv">$dbname</span> <span class="o">=</span> <span class="s2">&quot;user_data&quot;</span><span class="p">;</span>
-
-<span class="c1">// 建立連接</span>
-<span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$dbname</span><span class="p">);</span>
-
-<span class="c1">// 檢查連接</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">die</span><span class="p">(</span><span class="s2">&quot;連接失敗: &quot;</span> <span class="o">.</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">);</span>
-<span class="p">}</span>
+ <span class="cm">/*.. connect to sql with $conn ..*/</span>
 
 <span class="c1">// 開啟 session</span>
 <span class="nb">session_start</span><span class="p">();</span>
@@ -1215,17 +902,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;head&gt;</span>
 <span class="x">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
 <span class="x">        &lt;style&gt;</span>
-<span class="x">            #message {</span>
-<span class="x">                display: none; /* 預設隱藏 */</span>
-<span class="x">                background-color: </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$color</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x">; /* 背景 */</span>
-<span class="x">                color: white; /* 白色文字 */</span>
-<span class="x">                padding: 15px; /* 內邊距 */</span>
-<span class="x">                position: fixed; /* 固定位置 */</span>
-<span class="x">                top: 20px; /* 距上方20px */</span>
-<span class="x">                left: 50%; /* 水平置中 */</span>
-<span class="x">                transform: translate(-50%, -50%); /* 調整位置使其正好居中 */</span>
-<span class="x">                z-index: 1000; /* 確保在最上層 */</span>
-<span class="x">            }</span>
+
+<span class="x">             /*.. some CSS for better looking ..*/</span>
+<span class="x">        </span>
 <span class="x">        &lt;/style&gt;</span>
 <span class="x">    &lt;/head&gt;</span>
 <span class="x">    &lt;body&gt;</span>
@@ -1233,14 +912,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;div id=&quot;message&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$message</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/div&gt; &lt;!-- 顯示成功消息 --&gt;</span>
 
 <span class="x">    &lt;script&gt;</span>
-<span class="x">        // 獲取消息元素</span>
-<span class="x">        var messageDiv = document.getElementById(&#39;message&#39;);</span>
-<span class="x">        // 顯示消息</span>
-<span class="x">        messageDiv.style.display = &#39;block&#39;;</span>
-<span class="x">        // 設定幾秒後隱藏</span>
-<span class="x">        setTimeout(function() {</span>
-<span class="x">            messageDiv.style.display = &#39;none&#39;;</span>
-<span class="x">        }, 5000); // 5000毫秒 = 5秒</span>
+<span class="x">         </span>
+<span class="x">        /*.. some Js for output msg ..*/</span>
+<span class="x">    </span>
 <span class="x">    &lt;/script&gt;</span>
 
 <span class="x">    &lt;/body&gt;</span>
@@ -1261,18 +935,8 @@ password VARCHAR(255) NOT NULL<br />
 <li><p>取代重複檔名之檔案</p></li>
 </ul>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="c1">// 連接 MySQL 資料庫</span>
-<span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
-<span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span> <span class="c1">// MySQL 用戶名</span>
-<span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="c1">// MySQL 密碼</span>
-<span class="nv">$dbname</span> <span class="o">=</span> <span class="s2">&quot;user_data&quot;</span><span class="p">;</span>
 
-<span class="c1">// 建立連接</span>
-<span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$dbname</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">die</span><span class="p">(</span><span class="s2">&quot;資料庫連接失敗: &quot;</span> <span class="o">.</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">);</span>
-<span class="p">}</span>
+ <span class="cm">/*.. connect to sql with $conn ..*/</span>
 
 <span class="c1">// 開啟 session</span>
 <span class="nb">session_start</span><span class="p">();</span>
@@ -1327,17 +991,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;head&gt;</span>
 <span class="x">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
 <span class="x">        &lt;style&gt;</span>
-<span class="x">            #message {</span>
-<span class="x">                display: none; /* 預設隱藏 */</span>
-<span class="x">                background-color: #42ff33; /* 背景 */</span>
-<span class="x">                color: white; /* 白色文字 */</span>
-<span class="x">                padding: 15px; /* 內邊距 */</span>
-<span class="x">                position: fixed; /* 固定位置 */</span>
-<span class="x">                top: 20px; /* 距上方20px */</span>
-<span class="x">                left: 50%; /* 水平置中 */</span>
-<span class="x">                transform: translate(-50%, -50%); /* 調整位置使其正好居中 */</span>
-<span class="x">                z-index: 1000; /* 確保在最上層 */</span>
-<span class="x">            }</span>
+
+<span class="x">             /*.. some CSS for better looking ..*/</span>
+<span class="x">        </span>
 <span class="x">        &lt;/style&gt;</span>
 <span class="x">    &lt;/head&gt;</span>
 <span class="x">    &lt;body&gt;</span>
@@ -1345,14 +1001,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;div id=&quot;message&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$message</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/div&gt; &lt;!-- 顯示成功消息 --&gt;</span>
 
 <span class="x">    &lt;script&gt;</span>
-<span class="x">        // 獲取消息元素</span>
-<span class="x">        var messageDiv = document.getElementById(&#39;message&#39;);</span>
-<span class="x">        // 顯示消息</span>
-<span class="x">        messageDiv.style.display = &#39;block&#39;;</span>
-<span class="x">        // 設定幾秒後隱藏</span>
-<span class="x">        setTimeout(function() {</span>
-<span class="x">            messageDiv.style.display = &#39;none&#39;;</span>
-<span class="x">        }, 5000); // 5000毫秒 = 5秒</span>
+
+<span class="x">        /*.. some Js for output msg ..*/</span>
+<span class="x">    </span>
 <span class="x">    &lt;/script&gt;</span>
 
 <span class="x">    &lt;/body&gt;</span>
@@ -1376,103 +1027,8 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
 <span class="x">    &lt;title&gt;即時車輛偵測違規系統&lt;/title&gt;</span>
 <span class="x">    &lt;style&gt;</span>
+
 <span class="x">        /* 整體佈局 */</span>
-<span class="x">        body {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            margin: 0;</span>
-<span class="x">            font-family: Arial, sans-serif;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 左邊的側邊欄樣式 */</span>
-<span class="x">        .sidebar {</span>
-<span class="x">            width: 250px;</span>
-<span class="x">            height: 100vh;</span>
-<span class="x">            background-color: #333;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 20px 15px; /* 調整內邊距 */</span>
-<span class="x">            position: fixed;</span>
-<span class="x">            overflow: auto; /* 如果內容太多，可滾動 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar h2, .sidebar a {</span>
-<span class="x">            margin-left: 10px; /* 增加左側邊距，避免貼邊 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar a {</span>
-<span class="x">            padding: 10px;</span>
-<span class="x">            text-decoration: none;</span>
-<span class="x">            font-size: 18px;</span>
-<span class="x">            color: white;</span>
-<span class="x">            display: block;</span>
-<span class="x">        }</span>
-
-<span class="x">        .sidebar a:hover {</span>
-<span class="x">            background-color: #575757;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* Logout連結固定在底部 */</span>
-<span class="x">        .logout {</span>
-<span class="x">            position: absolute;</span>
-<span class="x">            bottom: 70px; /* 與底部的距離 */</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 右邊內容區域，包含圖片 */</span>
-<span class="x">        .content {</span>
-<span class="x">            margin-left: 270px; /* 增加側邊欄寬度 */</span>
-<span class="x">            padding: 20px;</span>
-<span class="x">            flex-grow: 1;</span>
-<span class="x">            </span>
-<span class="x">            /* 增加與底部的距離 */</span>
-<span class="x">            padding-bottom: 70px; /* 與底部的距離，根據需求調整 */</span>
-
-<span class="x">            /* 將內容居中 */</span>
-<span class="x">            display: flex;</span>
-<span class="x">            align-items: center; /* 垂直居中 */</span>
-<span class="x">            height: 100vh; /* 讓內容區域高度充滿頁面，便於垂直居中 */</span>
-<span class="x">            flex-direction: column; /* 垂直排列 */</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        select {</span>
-<span class="x">            width: 350px; /* 調整寬度 */</span>
-<span class="x">            height: 35px; /* 調整高度 */</span>
-<span class="x">            font-size: 15px; /* 調整文字大小 */</span>
-<span class="x">            padding: 5px;</span>
-<span class="x">            border: 1px solid #ccc;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            box-sizing: border-box;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;] {</span>
-<span class="x">            background-color: #4CAF50;</span>
-<span class="x">            color: white;</span>
-<span class="x">            padding: 10px 20px;</span>
-<span class="x">            border: none;</span>
-<span class="x">            border-radius: 5px;</span>
-<span class="x">            cursor: pointer;</span>
-<span class="x">        }</span>
-
-<span class="x">        input[type=&quot;submit&quot;]:hover {</span>
-<span class="x">            background-color: #45a049;</span>
-<span class="x">        }</span>
-
-<span class="x">        label {</span>
-<span class="x">            display: block;</span>
-<span class="x">            margin-bottom: 5px;</span>
-<span class="x">        }</span>
-
-<span class="x">        /* 容器，用於垂直排列 */</span>
-<span class="x">        .run-container {</span>
-<span class="x">            display: flex;</span>
-<span class="x">            font-size: 30px;</span>
-<span class="x">            align-items: left; /* 水平居中 */</span>
-<span class="x">            flex-direction: column; /* 垂直排列 */</span>
-<span class="x">            margin-top: 50px; /* 與上方元素的間隙 */</span>
-<span class="x">        }</span>
-
-<span class="x">        .func_button {</span>
-<span class="x">            margin-bottom: 70px; /* 調整影片與下方表單的距離 */</span>
-<span class="x">        }</span>
 
 <span class="x">    &lt;/style&gt;</span>
 <span class="x">&lt;/head&gt;</span>
@@ -1496,18 +1052,9 @@ password VARCHAR(255) NOT NULL<br />
 <span class="x">            &lt;select name=&quot;fileSelect&quot; id=&quot;fileSelect&quot;&gt;</span>
 <span class="x">                </span><span class="cp">&lt;?php</span>
                 <span class="nb">session_start</span><span class="p">();</span>
-                <span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
-                <span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span> <span class="c1">// MySQL 用戶名</span>
-                <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="c1">// MySQL 密碼</span>
-                <span class="nv">$dbname</span> <span class="o">=</span> <span class="s2">&quot;user_data&quot;</span><span class="p">;</span>
-                <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$dbname</span><span class="p">);</span>
-
                 <span class="nv">$usrname</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">];</span>
 
-                <span class="c1">// 檢查連接</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">die</span><span class="p">(</span><span class="s2">&quot;連接失敗: &quot;</span> <span class="o">.</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">);</span>
-                <span class="p">}</span>
+                <span class="cm">/*.. connect to sql with $conn ..*/</span>
                 
                 <span class="nv">$sql_name</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM </span><span class="si">$usrname</span><span class="s2">&quot;</span><span class="p">;</span>
                 <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql_name</span><span class="p">);</span>
