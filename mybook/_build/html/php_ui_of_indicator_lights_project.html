@@ -420,7 +420,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">起始應有兩個資料庫</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-work-before-getting-started">pre-work before getting started</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerview">prerview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-interface">register interface</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data-file">save data file</a></li>
@@ -457,12 +457,12 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="id1">
-<h2>起始應有兩個資料庫<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="pre-work-before-getting-started">
+<h2>pre-work before getting started<a class="headerlink" href="#pre-work-before-getting-started" title="Link to this heading">#</a></h2>
 <p><img alt="mysql" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20135156.png" /></p>
 <ul class="simple">
-<li><p>user_data: 存放該使用者的資料</p></li>
-<li><p>user_registration: 紀錄已註冊過的使用者</p></li>
+<li><p>user_data: where to put info of the user post data</p></li>
+<li><p>user_registration: record info of the registered user</p></li>
 </ul>
 <blockquote>
 <div><p>CREATE TABLE users (<br />
@@ -525,9 +525,9 @@ password VARCHAR(255) NOT NULL<br />
 <li><p>determine if the input data is qualified</p></li>
 <li><p>fill the boxes and add the user to “users” table</p></li>
 <li><p>create a table with the id in “user_data” database and make a dir to collect its videos</p></li>
-<li><p>after registration, turn to login.php
-<img alt="process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010343.png" /></p></li>
+<li><p>after registration, turn to login.php</p></li>
 </ul>
+<p><img alt="process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010343.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="cm">/*.. connect to sql with $conn ..*/</span>
@@ -627,9 +627,9 @@ password VARCHAR(255) NOT NULL<br />
 <h2>login interface<a class="headerlink" href="#login-interface" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>input id and password to login</p></li>
-<li><p>turn to login_process.php to verify the information
-<img alt="login" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-28%20155706.png" /></p></li>
+<li><p>turn to login_process.php to verify the information</p></li>
 </ul>
+<p><img alt="login" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-28%20155706.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;!DOCTYPE html&gt;</span>
 <span class="x">&lt;html lang=&quot;zh_TW&quot;&gt;</span>
 <span class="x">&lt;head&gt;</span>
@@ -661,9 +661,9 @@ password VARCHAR(255) NOT NULL<br />
 <h2>login data interface<a class="headerlink" href="#login-data-interface" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>verify if the id and password are valid</p></li>
-<li><p>if valid, store the username in session
-<img alt="login process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010400.png" /></p></li>
+<li><p>if valid, store the username in session</p></li>
 </ul>
+<p><img alt="login process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20010400.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="cm">/*.. connecct to sql with $conn ..*/</span>
@@ -741,9 +741,9 @@ password VARCHAR(255) NOT NULL<br />
 <h2>Home<a class="headerlink" href="#home" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>show the instruction of how to use this system</p></li>
-<li><p>with sidebar to go to other pages or logout
-<img alt="home" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120449.png" /></p></li>
+<li><p>with sidebar to go to other pages or logout</p></li>
 </ul>
+<p><img alt="home" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120449.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;!DOCTYPE html&gt;</span>
 <span class="x">&lt;html lang=&quot;zh_TW&quot;&gt;</span>
 <span class="x">&lt;head&gt;</span>
@@ -786,9 +786,9 @@ password VARCHAR(255) NOT NULL<br />
 <ul class="simple">
 <li><p>choose the mp4 videos to be uploaded (can upload multi files a time)</p></li>
 <li><p>turn to uoload_process.php</p></li>
-<li><p>with sidebar to go to other pages or logout
-<img alt="upload" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120456.png" /></p></li>
+<li><p>with sidebar to go to other pages or logout</p></li>
 </ul>
+<p><img alt="upload" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120456.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;!DOCTYPE html&gt;</span>
 <span class="x">&lt;html lang=&quot;zh_TW&quot;&gt;</span>
 <span class="x">&lt;head&gt;</span>
@@ -840,9 +840,9 @@ password VARCHAR(255) NOT NULL<br />
 <li><p>keep the video in a place (in this case, it’s uploads/$username/)</p></li>
 <li><p>need a place to temporary keep the videos (in this case, it’s uploads/tmp/)</p></li>
 <li><p>verify if the video name already exist, if yes ask user to replace or not</p></li>
-<li><p>replace: turn to replace.php file
-<img alt="file store" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20150336.png" /></p></li>
+<li><p>replace: turn to replace.php file</p></li>
 </ul>
+<p><img alt="file store" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-09-29%20150336.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
  <span class="cm">/*.. connect to sql with $conn ..*/</span>
@@ -964,10 +964,9 @@ password VARCHAR(255) NOT NULL<br />
 <h2>replace<a class="headerlink" href="#replace" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>update the info of the replacing video to mysql (table) and user database</p></li>
-<li><p>turn to upload.php after finished
-<img alt="replace" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20222137.png" /></p></li>
-<li><p>取代重複檔名之檔案</p></li>
+<li><p>turn to upload.php after finished</p></li>
 </ul>
+<p><img alt="replace" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20222137.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
  <span class="cm">/*.. connect to sql with $conn ..*/</span>
@@ -1056,9 +1055,9 @@ password VARCHAR(255) NOT NULL<br />
 <ul class="simple">
 <li><p>let user select the video to process</p></li>
 <li><p>show the video after user click “Choose” (turn to run_process.php without displaying)</p></li>
-<li><p>with sidebar to go to other pages or logout
-<img alt="run" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120524.png" /></p></li>
+<li><p>with sidebar to go to other pages or logout</p></li>
 </ul>
+<p><img alt="run" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120524.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;!DOCTYPE html&gt;</span>
 <span class="x">&lt;html lang=&quot;zh_TW&quot;&gt;</span>
 <span class="x">&lt;head&gt;</span>
@@ -1149,9 +1148,9 @@ password VARCHAR(255) NOT NULL<br />
 <section id="run-process">
 <h2>run process<a class="headerlink" href="#run-process" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>find the selected video, and return to run.php
-<img alt="run process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120503.png" /></p></li>
+<li><p>find the selected video, and return to run.php</p></li>
 </ul>
+<p><img alt="run process" src="https://raw.githubusercontent.com/HutakiHare/IIS_intern/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202024-10-01%20120503.png" /></p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="nb">session_start</span><span class="p">();</span>
 
@@ -1175,7 +1174,7 @@ password VARCHAR(255) NOT NULL<br />
 <li><p>act according to the four buttons below video</p></li>
 <li><p>connect to python codes to process the videos</p></li>
 </ul>
-<p><span style="background-color: skyblue;"><strong>To Be Continue</strong></span></p>
+<p><span style="color: skyblue;"><strong>To Be Continue</strong></span></p>
 <aside class="topic">
 <p class="topic-title">info</p>
 <p>To see full code, please see <a class="reference external" href="https://github.com/HutakiHare/mybook/tree/fed84c36b0a4dd3d1c014d8c33102c182c819b5f/mybook/htdocs">my GitHub</a></p>
@@ -1239,7 +1238,7 @@ password VARCHAR(255) NOT NULL<br />
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">起始應有兩個資料庫</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-work-before-getting-started">pre-work before getting started</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerview">prerview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-interface">register interface</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data-file">save data file</a></li>
